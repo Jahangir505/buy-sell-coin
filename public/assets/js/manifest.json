@@ -1,0 +1,53 @@
+{
+    "name": "Probuysell",
+    "short_name": "Probuysell",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#cccccc",
+    "icons": [
+      {
+        "src": "../front/img/512_512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      },
+      {
+        "src": "../front/img/192_192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "../front/img/96_96.png",
+        "sizes": "96x96",
+        "type": "image/png"
+      },
+
+      {
+        "src": "../front/img/48_48.png",
+        "sizes": "96x96",
+        "type": "image/png"
+      }
+    ],
+    "description": "Buy and sell yours cryptocurrencies",
+    "dir": "auto",
+    "lang": "en",
+    "orientation": "natural",
+    "display_override": [
+        "standalone",
+        "browser",
+        "window-controls-overlay",
+        "fullscreen",
+        "minimal-ui"
+      ],
+      
+      "categories": [
+        "business",
+        "finance"
+      ],
+
+      "edge_side_panel": {
+        "preferred_width": 748
+      },
+    
+      "handle_links":"auto"
+}

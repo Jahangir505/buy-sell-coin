@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="zxx">
+<!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1, user-scalable=0">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<title>Paywallet - PHP Online payment gateway script </title>
+	<!--Favicon-->
+	<link rel="shortcut icon" type="image/png" href="html/dogemine/dog/assets/images/favicon.png" />
+	<!--Bootstrap Stylesheet-->
+	<link rel="stylesheet" type="text/css" href="html/dogemine/dog/assets/css/bootstrap.css">
+	<!--Slick Slider-->
+	<link rel="stylesheet" type="text/css" href="html/dogemine/dog/assets/css/slick.css">
+	<!--Font Awesome Stylesheet-->
+	<link rel="stylesheet" type="text/css" href="html/dogemine/dog/assets/css/all.min.css">
+	<!--Animate Stylesheet-->
+	<link rel="stylesheet" type="text/css" href="html/dogemine/dog/assets/css/animate.css">
+	<!--Venobox Stylesheet-->
+	<link rel="stylesheet" type="text/css" href="html/dogemine/dog/assets/css/venobox.css">
+	<!--Main Stylesheet-->
+	<link rel="stylesheet" type="text/css" href="html/dogemine/dog/assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="html/dogemine/dog/assets/css/index2.css">
+	<!--Responsive Stylesheet-->
+	<link rel="stylesheet" type="text/css" href="html/dogemine/dog/assets/css/responsive.css">
+</head>
+<body class="body-class index_1 home1">
+	<!--Start Preloader-->
+	<div class="site-preloader">
+		<div class="spinner">
+			<div class="double-bounce1"></div>
+			<div class="double-bounce2"></div>
+		</div>
+	</div>
+	<!--End Preloader-->
+	<!-- Main Menu Area Start -->
+	<header id="mainHeader" class="header">
+		<!-- Start Navigation -->
+		<nav class="navbar navbar-expand-lg navbar-light p-0">
+			<div class="container">
+				<a class="navbar-brand" href="#welcomeArea">
+					Paywallet
+				</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+				 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav ml-auto">
+						<li class="nav-item">
+							<a class="nav-link" href="#hiw">How it work</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#video">About Us</a>
+						</li>
+						
+						<li class="nav-item">
+							<a class="nav-link" href="#footer">Contact</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/login">Login</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/register">Register</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		<!-- End Navigation -->
+		<div class="clearfix"></div>
+	</header>
+	<!-- Main Menu Area End -->
+	<!-- Welcome Area Start -->
+	<section id="welcomeArea">
+		<div class="container">
+			<div class="row welcomaareaRow">
+				<div class="col-md-6 d-flex align-self-center">
+					<div class="left">
+						<h1>Paywallet</h1>
+						<span>Send money straight to globally, Manage your money, anytime, anywhere</span>
+						<div class="searcAddress">
+							<form action="#">
+								<input type="text" placeholder="Enter Emil Address...">
+								<button type="submit">Send</button>
+							</form>
+						</div>
+						<div class="info">
+							<h3>
+								Virtual Card Issueing
+							</h3>
+							<p>
+								Instant VCC Creation and shop anywhere
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 d-flex dSmNone align-self-center">
+					<div class="right">
+						<div class="background">
+							<img class="img-fluid" src="html/dogemine/dog/assets/images/welcomearea.png" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Welcome Area End -->
+	<!-- How it Works Area Start -->
+	<section id="hiw">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 text-center">
+					<div class="heading-title">
+						
+						<h2>
+							How It Work?
+						</h2>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6 col-lg-3">
+					<div class="box box1">
+						<i class="fas fa-search"></i>
+						<p>
+							Send Money <br>
+							To anywhere anytime
+						</p>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-3">
+					<div class="box box2">
+						<i class="fas fa-pencil-alt"></i>
+						<p>
+							Deposit with any Payment Option you like
+						</p>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-3">
+					<div class="box box3">
+						<i class="far fa-hand-point-up"></i>
+						<p>
+							Request Money from friend & family
+						</p>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-3">
+					<div class="box box4">
+						<i class="fas fa-check"></i>
+						<p>
+							Create Visa virtual card instantly and shop anywhere anytime
+						</p>
+					</div>
+				</div>
+				
+				<div class="row">
+				<div class="col-md-6 col-lg-3">
+					<div class="box box1">
+						<i class="fas fa-search"></i>
+						<p>
+							Exchange eCurrencies <br>
+							from one currency to another 
+						</p>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-3">
+					<div class="box box2">
+						<i class="fas fa-pencil-alt"></i>
+						<p>
+							Escrow system 
+						</p>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-3">
+					<div class="box box3">
+						<i class="far fa-hand-point-up"></i>
+						<p>
+							Auto withdrawal and manaul option
+						</p>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-3">
+					<div class="box box4">
+						<i class="fas fa-check"></i>
+						<p>
+							API Documentation for merchants
+						</p>
+					</div>
+				</div>
+				
+				
+			</div>
+		</div>
+	</section>
+	<!-- How it Works Area End -->
+	<!-- video Area Start -->
+	<section id="video">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 d-flex align-self-center">
+					<div class="left">
+						<div class="heading-title">
+							<p>
+								About Paywallet
+							</p>
+							<h2>
+								We've Built
+								Paywallet PHP Ewallet Platform
+							</h2>
+						</div>
+						<div class="content">
+							<p>
+							 Send money straight to globally, Virtual Card creation,
+								anytime, anywhere. Take control of your money effortlessly and securely.
+								Get faster access to your payments, Start use paywallet to accepting on your 
+								website, app etc.
+							</p>
+							<div class="videoBox">
+								<a class="venobox" data-vbtype="video" data-autoplay="true" href="#">
+									<i class="fas fa-play"></i>
+								</a>
+								<span>
+									Watch 2:45 min movie
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="right">
+						<div class="parallax1">
+							<img class="img-fluid" src="html/dogemine/dog/assets/images/about.png" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- video Area End  -->
+	<!-- Transaction Area Start -->
+	<section id="transaction">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 text-center">
+					<div class="heading-title2">
+						<p>
+							Transaction
+						</p>
+						<h2>
+							Paywallet Transaction
+						</h2>
+					</div>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-10 col-lg-8 ">
+					<div class="tab1">
+						<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+							<li class="nav-item">
+								<a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home"
+								 aria-selected="true">
+									<p>
+										deposits
+									</p>
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile"
+								 aria-selected="false">
+									<p>
+										payouts
+									</p>
+								</a>
+							</li>
+						</ul>
+						<div class="tab-content" id="pills-tabContent">
+							<div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+								<div class="table-responsive">
+									<table class="table table-bordered">
+										<thead>
+											<tr>
+												<th>AMOUNT</th>
+												<th>WALLET</th>
+												<th>TRX ID</th>
+												<th>TRX TIME</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>$2647.00</td>
+												<td>Payzoft</td>
+												<td>E975A</td>
+												<td>02:58 AM</td>
+											</tr>
+											<tr>
+												<td>997 BTC</td>
+												<td>Bitcoin</td>
+												<td>G56JK</td>
+												<td>09:08 AM</td>
+											</tr>
+											<tr>
+												<td>78934 BTC</td>
+												<td>paypal</td>
+												<td>F9Q34</td>
+												<td>11:48 PM</td>
+											</tr>
+											<tr>
+												<td>$847.00</td>
+												<td>Credit/Card</td>
+												<td>M7J45</td>
+												<td>11:08 AM</td>
+											</tr>
+											<tr>
+												<td>997 BTC</td>
+												<td>Payoneer</td>
+												<td>G56JK</td>
+												<td>09:08 AM</td>
+											</tr>
+											<tr>
+												<td>$2647.00</td>
+												<td>E-wallet</td>
+												<td>E975A</td>
+												<td>02:58 AM</td>
+											</tr>
+											<tr>
+												<td>$847.00</td>
+												<td>Mobile Money</td>
+												<td>M7J45</td>
+												<td>11:08 AM</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+								<div class="table-responsive">
+									<table class="table table-bordered">
+										<thead>
+											<tr>
+												<th>AMOUNT</th>
+												<th>WALLET</th>
+												<th>TRX ID</th>
+												<th>TRX TIME</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>$2647.00</td>
+												<td>Dollar</td>
+												<td>E975A</td>
+												<td>02:58 AM</td>
+											</tr>
+											<tr>
+												<td>997 BTC</td>
+												<td>Bitcoin</td>
+												<td>G56JK</td>
+												<td>09:08 AM</td>
+											</tr>
+											<tr>
+												<td>78934 BTC</td>
+												<td>Bitcoin</td>
+												<td>F9Q34</td>
+												<td>11:48 PM</td>
+											</tr>
+											<tr>
+												<td>$847.00</td>
+												<td>Dollar</td>
+												<td>M7J45</td>
+												<td>11:08 AM</td>
+											</tr>
+											<tr>
+												<td>997 BTC</td>
+												<td>Bitcoin</td>
+												<td>G56JK</td>
+												<td>09:08 AM</td>
+											</tr>
+											<tr>
+												<td>$2647.00</td>
+												<td>Dollar</td>
+												<td>E975A</td>
+												<td>02:58 AM</td>
+											</tr>
+											<tr>
+												<td>$847.00</td>
+												<td>Dollar</td>
+												<td>M7J45</td>
+												<td>11:08 AM</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Transaction Area End -->
+	
+	
+	<!-- Counter Area Start -->
+	<section id="counter">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 col-lg-3">
+					<div class="cWrapper">
+						<div class="box box1 d-flex">
+							<div class="left d-flex align-self-center">
+								<p>
+									<i class="fas fa-check"></i>
+								</p>
+							</div>
+							<div class="right">
+								<div class="content">
+									<span class="count">2540</span>
+									<p>
+										Projects Completed
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-3">
+					<div class="cWrapper">
+						<div class="box box2 d-flex">
+							<div class="left d-flex align-self-center">
+								<p>
+									<i class="fas fa-coffee"></i>
+								</p>
+							</div>
+							<div class="right">
+								<span class="count">7325</span>
+								<p>
+									Coffee Consumed
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-3">
+					<div class="cWrapper">
+						<div class="box box3 d-flex">
+							<div class="left d-flex align-self-center">
+								<p>
+									<i class="fas fa-heart"></i>
+								</p>
+							</div>
+							<div class="right">
+								<span class="count">7325</span>
+								<p>
+									Happy Customers
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 col-lg-3">
+					<div class="cWrapper">
+						<div class="box box4 d-flex">
+							<div class="left d-flex align-self-center">
+								<p>
+									<i class="fas fa-cog"></i>
+								</p>
+							</div>
+							<div class="right">
+								<span class="count">2754</span>
+								<p>
+									Lines of Code
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Counter Area End -->
+	<!-- FAQ Area Start -->
+	<section id="faq">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 text-center">
+					<div class="heading-title2">
+						<p>
+							FAQ’s
+						</p>
+						<h2>
+							Frequently Asking Question’s
+						</h2>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">
+					<div class="faq-accordian">
+						<div class="panel-group accordion" id="accordionId">
+							<div class="row">
+								<div class="col-md-6">
+									<div class="panel panel-default">
+										<div class="panel-heading" id="headingOne">
+											<h4 class="panel-title">
+												<a class="" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+													How can i get help by inbound marketing?</a>
+											</h4>
+										</div>
+										<div id="collapse1" class="collapse" aria-labelledby="headingOne" data-parent="#accordionId">
+											<div class="panel-body">
+												We are full service Digital Marketing Agency all the tools you
+												need for inbound success. With this module theres no need to
+												go another day.
+											</div>
+										</div>
+									</div>
+									<div class="panel panel-default">
+										<div class="panel-heading" id="headingTwo">
+											<h4 class="panel-title">
+												<a class="collapsed" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapse2">
+													I have questions about the updated trems of
+													Services and Privacy Policy</a>
+											</h4>
+										</div>
+										<div id="collapse2" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionId">
+											<div class="panel-body">
+												We are full service Digital Marketing Agency all the tools you
+												need for inbound success. With this module theres no need to
+												go another day.
+											</div>
+										</div>
+									</div>
+									<div class="panel panel-default">
+										<div class="panel-heading" id="headingThree">
+											<h4 class="panel-title">
+												<a class="collapsed" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+													User Guide: Getting Started</a>
+											</h4>
+										</div>
+										<div id="collapse3" class="collapse" aria-labelledby="headingThree" data-parent="#accordionId">
+											<div class="panel-body">
+												We are full service Digital Marketing Agency all the tools you
+												need for inbound success. With this module theres no need to
+												go another day.
+											</div>
+										</div>
+									</div>
+									<div class="panel panel-default">
+										<div class="panel-heading" id="headingFour">
+											<h4 class="panel-title">
+												<a class="collapsed" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+													Are you plan to open a brance on Dhaka?</a>
+											</h4>
+										</div>
+										<div id="collapse4" class="collapse" aria-labelledby="headingFour" data-parent="#accordionId">
+											<div class="panel-body">
+												We are full service Digital Marketing Agency all the tools you
+												need for inbound success. With this module theres no need to
+												go another day.
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="panel panel-default">
+										<div class="panel-heading" id="headingFive">
+											<h4 class="panel-title">
+												<a class="" data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+													How can i get help by x company?</a>
+											</h4>
+										</div>
+										<div id="collapse5" class="collapse" aria-labelledby="headingFive" data-parent="#accordionId">
+											<div class="panel-body">
+												We are full service Digital Marketing Agency all the tools you
+												need for inbound success. With this module theres no need to
+												go another day.
+											</div>
+										</div>
+									</div>
+									<div class="panel panel-default">
+										<div class="panel-heading" id="headingSix">
+											<h4 class="panel-title">
+												<a class="collapsed" data-toggle="collapse" data-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
+													What about loan programs & after bank?</a>
+											</h4>
+										</div>
+										<div id="collapse6" class="collapse" aria-labelledby="headingSix" data-parent="#accordionId">
+											<div class="panel-body">
+												We are full service Digital Marketing Agency all the tools you
+												need for inbound success. With this module theres no need to
+												go another day.
+											</div>
+										</div>
+									</div>
+									<div class="panel panel-default">
+										<div class="panel-heading" id="headingSeven">
+											<h4 class="panel-title">
+												<a class="collapsed" data-toggle="collapse" data-target="#collapse7" aria-expanded="false" aria-controls="collapse7">
+													How long your contract trems?</a>
+											</h4>
+										</div>
+										<div id="collapse7" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionId">
+											<div class="panel-body">
+												We are full service Digital Marketing Agency all the tools you
+												need for inbound success. With this module theres no need to
+												go another day.
+											</div>
+										</div>
+									</div>
+									<div class="panel panel-default">
+										<div class="panel-heading" id="headingEight">
+											<h4 class="panel-title">
+												<a class="collapsed" data-toggle="collapse" data-target="#collapse8" aria-expanded="false" aria-controls="collapse8">
+													I have questions about the updated trems of
+													Services and Privacy Policy</a>
+											</h4>
+										</div>
+										<div id="collapse8" class="collapse" aria-labelledby="headingEight" data-parent="#accordionId">
+											<div class="panel-body">
+												We are full service Digital Marketing Agency all the tools you
+												need for inbound success. With this module theres no need to
+												go another day.
+											</div>
+										</div>
+									</div>
+									<div class="panel panel-default">
+										<div class="panel-heading" id="headingNine">
+											<h4 class="panel-title">
+												<a class="collapsed" data-toggle="collapse" data-target="#collapse9" aria-expanded="false" aria-controls="collapse9">
+													Are you plan to open a brance on Dhaka?</a>
+											</h4>
+										</div>
+										<div id="collapse9" class="collapse" aria-labelledby="headingNine" data-parent="#accordionId">
+											<div class="panel-body">
+												We are full service Digital Marketing Agency all the tools you
+												need for inbound success. With this module theres no need to
+												go another day.
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- FAQ Area End -->
+	<!-- Testimonial Area Start -->
+	<section id="testimonial">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-12 col-md-6 col-lg-5 text-center">
+					<div class="slider slider-nav">
+						<div class="client-thumbnail">
+							<img src="html/dogemine/dog/assets/images/user1.png" alt="">
+						</div>
+						<div class="client-thumbnail">
+							<img src="html/dogemine/dog/assets/images/user2.png" alt="">
+						</div>
+						<div class="client-thumbnail">
+							<img src="html/dogemine/dog/assets/images/user3.png" alt="">
+						</div>
+						<div class="client-thumbnail">
+							<img src="html/dogemine/dog/assets/images/user4.png" alt="">
+						</div>
+						<div class="client-thumbnail">
+							<img src="html/dogemine/dog/assets/images/user5.png" alt="">
+						</div>
+						<div class="client-thumbnail">
+							<img src="html/dogemine/dog/assets/images/user2.png" alt="">
+						</div>
+						<div class="client-thumbnail">
+							<img src="html/dogemine/dog/assets/images/user3.png" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-12 col-md-10 col-lg-9">
+					<div class="slider slider-for">
+						<!-- Client Feedback Text  -->
+						<div class="client-feedback-text text-center">
+							<div class="client-description text-center">
+								<p>
+									“Lorem ipsum dolor sit amet, Vestibulum egetvel lacus pretium rhoncus, consectetur adipiscing elit. a quis in
+									pulvinar donec diam elit consequat eget augue nisly Ut vehicula gravida dui vitae aliquet sollicitudin.”
+								</p>
+							</div>
+							<div class="client-name text-center">
+								<h5>Sabbir Ahmed -</h5>
+								<p>Ceo Colorlib</p>
+							</div>
+						</div>
+						<!-- Client Feedback Text  -->
+						<div class="client-feedback-text text-center">
+							<div class="client-description text-center">
+								<p>
+									“Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum egetvel lacus pretium rhoncus a quis
+									nisly Ut vehicula gravida dui in pulvinar donec diam elit consequat eget augue vitae aliquet sollicitudin.”
+								</p>
+							</div>
+							<div class="client-name text-center">
+								<h5>Jennifer -</h5>
+								<p>Developer</p>
+							</div>
+						</div>
+						<!-- Client Feedback Text  -->
+						<div class="client-feedback-text text-center">
+							<div class="client-description text-center">
+								<p>
+									“Consectetur adipiscing elit. Vestibulum egetvel lacus pretium rhoncus, Lorem ipsum dolor sit amet, a quis
+									nisly Ut vehicula gravida dui in pulvinar eget augue vitae aliquet sollicitudin. donec diam elit consequat.”
+								</p>
+							</div>
+							<div class="client-name text-center">
+								<h5>Muhammad Jamiu -</h5>
+								<p>Web Developer</p>
+							</div>
+						</div>
+						<!-- Client Feedback Text  -->
+						<div class="client-feedback-text text-center">
+							<div class="client-description text-center">
+								<p>
+									“Lorem ipsum dolor sit amet. Vestibulum egetvel lacus pretium rhoncus, consectetur adipiscing elit. a quis
+									nisly Ut vehicula gravida, consequat eget augue vitae aliquet sollicitudin. dui in pulvinar donec diam elit.”
+								</p>
+							</div>
+							<div class="client-name text-center">
+								<h5>Henry smith -</h5>
+								<p>Developer</p>
+							</div>
+						</div>
+						<div class="client-feedback-text text-center">
+							<div class="client-description text-center">
+								<p>
+									“Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum egetvel lacus pretium rhoncus a quis
+									nisly Ut vehicula gravida dui in pulvinar donec diam elit consequat eget augue vitae aliquet sollicitudin.”
+								</p>
+							</div>
+							<div class="client-name text-center">
+								<h5>Mamunur Rashid -</h5>
+								<p>Developer</p>
+							</div>
+						</div>
+						<div class="client-feedback-text text-center">
+							<div class="client-description text-center">
+								<p>
+									“Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum egetvel lacus pretium rhoncus a quis
+									nisly Ut vehicula gravida dui in pulvinar donec diam elit consequat eget augue vitae aliquet sollicitudin.”
+								</p>
+							</div>
+							<div class="client-name text-center">
+								<h5>Henry smith -</h5>
+								<p>Developer</p>
+							</div>
+						</div>
+						<div class="client-feedback-text text-center">
+							<div class="client-description text-center">
+								<p>
+									“Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum egetvel lacus pretium rhoncus a quis
+									nisly Ut vehicula gravida dui in pulvinar donec diam elit consequat eget augue vitae aliquet sollicitudin.”
+								</p>
+							</div>
+							<div class="client-name text-center">
+								<h5>Henry smith -</h5>
+								<p>Developer</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Testimonial Area End -->
+	<!-- Footer Area Start -->
+	<footer id="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="box">
+						<div class="logo">
+							<a href="#">
+								DogeMine
+							</a>
+							<div class="content">
+								<p class="fp">
+									There are many variations passage Lorem available,
+								</p>
+								<p>
+									But the majority have suffered alteration in some
+									form, by injected humour, randomised words which
+									don't look even slightly believable.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="title">
+						<h5>
+							Contact With Us
+						</h5>
+						<form action="#">
+							<input type="text" placeholder="Your name here*" required>
+							<input type="text" placeholder="Your email here*" required>
+							<textarea placeholder="Massege*"></textarea>
+							<button type="submit">Submit</button>
+						</form>
+					</div>
+				</div>
+				<div class="col-md-4 fnewsArea">
+					<div class="title">
+						<h5>
+							Latest News
+						</h5>
+					</div>
+					<ul>
+						<li>
+							<a href="#">
+								How can be successfull in market seo. Maza Market place...
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								Whay can be successfull in market web. Enva Market place...
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								Who can be successfull in market seo. Upor Market place...
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								What can be successfull in market web. Prop Market place...
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<div class="row copyrightArea">
+				<div class="col-12 text-center">
+					<p>
+						Copyright © Paywallet All Right Reserved
+					</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- Footer Area End -->
+	<!--Start ClickToTop-->
+	<div class="totop">
+		<a href="#top"><i class="fa fa-arrow-up"></i></a>
+	</div>
+	<!--End ClickToTop-->
+	<!--jQuery JS-->
+	<script src="html/dogemine/dog/assets/js/jquery.min.js"></script>
+	<!--Bootstrap JS-->
+	<script src="html/dogemine/dog/assets/js/bootstrap.min.js"></script>
+	<script src="html/dogemine/dog/assets/js/popper.js"></script>
+	<!-- Slick Slider -->
+	<script src="html/dogemine/dog/assets/js/slick.min.js"></script>
+	<!-- counter -->
+	<script src="html/dogemine/dog/assets/js/waypoints.js"></script>
+	<script src="html/dogemine/dog/assets/js/jquery.counterup.min.js"></script>
+	<!-- MpusemoverParallax JS-->
+	<script src="html/dogemine/dog/assets/js/tweenmax.js"></script>
+	<script src="html/dogemine/dog/assets/js/mousemoveparallax.js"></script>
+	<!-- Venobox JS-->
+	<script src="html/dogemine/dog/assets/js/venobox.min.js"></script>
+	<!--Main-->
+	<script src="html/dogemine/dog/assets/js/main.js"></script>
+</body>
