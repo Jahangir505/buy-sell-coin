@@ -8,7 +8,7 @@ $(window).on("scroll", function () {
   if ($(window).scrollTop() > 50) {
     $(".navbar").addClass("fullNav");
   } else {
-    $(".navbar").removeClass("fullNav");
+    // $(".navbar").removeClass("fullNav");
   }
 });
 

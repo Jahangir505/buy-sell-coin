@@ -8,7 +8,7 @@
 
     <div class="header" >
 
-      <h2><i class="zmdi zmdi-alert-circle-o text-white"></i> <strong class="text-white">{{__('Welcome')}} @php echo ucfirst(auth::user()->name) @endphp</strong></h2>
+      <h2><i class="zmdi zmdi-alert-circle-o text-white"></i> <strong class="text-white"><?php echo e(__('Welcome')); ?> <?php echo ucfirst(auth::user()->name) ?></strong></h2>
 
         <ul class="header-dropdown">  
 
@@ -28,7 +28,7 @@
 
             <div class="col">
 
-                <p class="text-white">  {{__(session()->get("message"))}} </p>
+                <p class="text-white">  <?php echo e(__(session()->get("message"))); ?> </p>
 
             </div>   
 
@@ -51,10 +51,10 @@
 
 
         <div class="overview o_affiliation">
-          <p class="o_title">{{__("Affiliation")}}</p>
+          <p class="o_title"><?php echo e(__("Affiliation")); ?></p>
           
           
-          {{-- Tailwind CSS --}}
+          
           <section class="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
             <div class="flex items-center p-4 bg-white shadow rounded-lg">
               <div class="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-purple-600 bg-purple-100 rounded-full mr-6">
@@ -64,8 +64,8 @@
                 
               </div>
               <div>
-                <span class="block text-2xl font-bold text-black">{{$affiliated}}</span>
-                <span class="block text-gray-500">{{__("Number of affiliates")}}</span>
+                <span class="block text-2xl font-bold text-black"><?php echo e($affiliated); ?></span>
+                <span class="block text-gray-500"><?php echo e(__("Number of affiliates")); ?></span>
               </div>
             </div>
             <div class="flex items-center p-4 bg-white shadow rounded-lg">
@@ -76,8 +76,8 @@
                 
               </div>
               <div>
-                <span class="block text-2xl font-bold text-dark">{{$balance->amount}}</span>
-                <span class="block text-gray-500">{{__("Account balance ($)")}}</span>
+                <span class="block text-2xl font-bold text-dark"><?php echo e($balance->amount); ?></span>
+                <span class="block text-gray-500"><?php echo e(__("Account balance ($)")); ?></span>
               </div>
             </div>
             <div class="flex items-center p-4 bg-white shadow rounded-lg">
@@ -88,9 +88,9 @@
                 
               </div>
               <div>
-                <span class="inline-block text-2xl font-bold text-black">{{$earning}}</span>
-                {{-- <span class="inline-block text-xl text-gray-500 font-semibold">(14%)</span> --}}
-                <span class="block text-gray-500">{{__("Total Generated ($)")}}</span>
+                <span class="inline-block text-2xl font-bold text-black"><?php echo e($earning); ?></span>
+                
+                <span class="block text-gray-500"><?php echo e(__("Total Generated ($)")); ?></span>
               </div>
             </div>
             <div class="flex items-center p-4 bg-white shadow rounded-lg">
@@ -101,34 +101,16 @@
                 
               </div>
               <div>
-                <span class="block text-2xl font-bold text-black">{{$earning-$balance->amount}}</span>
-                <span class="block text-gray-500">{{__("Total winnings withdrawn ($)")}}</span>
+                <span class="block text-2xl font-bold text-black"><?php echo e($earning-$balance->amount); ?></span>
+                <span class="block text-gray-500"><?php echo e(__("Total winnings withdrawn ($)")); ?></span>
               </div>
             </div>
           </section>
 
-          {{-- Tailwind CSS --}}
+          
 
 
-          {{-- <div class="item">
-            <div class="o_header"><span class="ico"><i data-feather="share-2"></i></span><span class="O_description">{{__("Number of affiliates")}}</span></div>
-            <div class="o_counter">{{$affiliated}}</div>
-          </div>
-
-          <div class="item">
-            <div class="o_header"><span class="ico"><i data-feather="dollar-sign"></i></span><span class="O_description">{{__("Account balance ($)")}}</span></div>
-            <div class="o_counter">{{$balance->amount}}</div>
-          </div>
-
-          <div class="item">
-            <div class="o_header"><span class="ico"><i data-feather="package"></i></span><span class="O_description">{{__("Total Generated ($)")}}</span></div>
-            <div class="o_counter">{{$earning}}</div>
-          </div>
-
-          <div class="item">
-            <div class="o_header"><span class="ico"><i data-feather="share"></i></span><span class="O_description">{{__("Total winnings withdrawn ($)")}}</span></div>
-            <div class="o_counter">{{$earning-$balance->amount}}</div>
-          </div> --}}
+          
 
           <div class="clear"></div>
         </div>
@@ -137,7 +119,7 @@
 
       <div class="overview o_transaction">
 
-          <p class="o_title">{{__("Transaction")}}</p>
+          <p class="o_title"><?php echo e(__("Transaction")); ?></p>
 
           <section class="grid md:grid-cols-2 xl:grid-cols-4 gap-6">
             <div class="flex items-center p-4 bg-white shadow rounded-lg">
@@ -148,8 +130,8 @@
                 
               </div>
               <div>
-                <span class="block text-2xl font-bold text-black">{{$total_buy}}</span>
-                <span class="block text-gray-500">{{__("Purchases made")}}</span>
+                <span class="block text-2xl font-bold text-black"><?php echo e($total_buy); ?></span>
+                <span class="block text-gray-500"><?php echo e(__("Purchases made")); ?></span>
               </div>
             </div>
             <div class="flex items-center p-4 bg-white shadow rounded-lg">
@@ -161,8 +143,8 @@
                 
               </div>
               <div>
-                <span class="block text-2xl font-bold text-dark">{{$total_sell}}</span>
-                <span class="block text-gray-500">{{__("Sales made")}}</span>
+                <span class="block text-2xl font-bold text-dark"><?php echo e($total_sell); ?></span>
+                <span class="block text-gray-500"><?php echo e(__("Sales made")); ?></span>
               </div>
             </div>
             <div class="flex items-center p-4 bg-white shadow rounded-lg">
@@ -174,9 +156,9 @@
                 
               </div>
               <div>
-                <span class="inline-block text-2xl font-bold text-black">{{$rejected}}</span>
-                {{-- <span class="inline-block text-xl text-gray-500 font-semibold">(14%)</span> --}}
-                <span class="block text-gray-500">{{__("Operations canceled")}}</span>
+                <span class="inline-block text-2xl font-bold text-black"><?php echo e($rejected); ?></span>
+                
+                <span class="block text-gray-500"><?php echo e(__("Operations canceled")); ?></span>
               </div>
             </div>
             <div class="flex items-center p-4 bg-white shadow rounded-lg">
@@ -187,32 +169,14 @@
                 
               </div>
               <div>
-                <span class="block text-2xl font-bold text-black">{{$total_buy_sell}}</span>
-                <span class="block text-gray-500">{{__("Transaction volume")}}</span>
+                <span class="block text-2xl font-bold text-black"><?php echo e($total_buy_sell); ?></span>
+                <span class="block text-gray-500"><?php echo e(__("Transaction volume")); ?></span>
               </div>
             </div>
           </section>
 
 
-          {{-- <div class="item">
-            <div class="o_header"><span class="ico"><i data-feather="shopping-cart"></i></span><span class="O_description">{{__("Purchases made")}}</span></div>
-            <div class="o_counter">{{$total_buy}}</div>
-          </div>
-
-          <div class="item">
-            <div class="o_header"><span class="ico"><i data-feather="external-link"></i></span><span class="O_description">{{__("Sales made")}}</span></div>
-            <div class="o_counter">{{$total_sell}}</div>
-          </div>
-
-          <div class="item">
-            <div class="o_header"><span class="ico"><i data-feather="x-circle"></i></span><span class="O_description">{{__("Operations canceled")}}</span></div>
-            <div class="o_counter">{{$rejected}}</div>
-          </div>
-
-          <div class="item">
-            <div class="o_header"><span class="ico"><i data-feather="package"></i></span><span class="O_description">{{__("Transaction volume")}}</span></div>
-            <div class="o_counter">{{$total_buy_sell}}</div>
-          </div> --}}
+          
 
           <div class="clear"></div>
 
