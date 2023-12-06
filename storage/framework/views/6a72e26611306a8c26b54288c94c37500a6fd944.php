@@ -6,7 +6,16 @@
 
 <div class="panel panel-default">
 
-      
+     <style>
+      thead th{
+        background: #22be68 !important;
+        color: #ffffff !important;
+      }
+        tr:nth-child(even){background-color: #f2f2f2}
+        .panel-footer{
+          margin-top: 15px !important;
+        }
+      </style> 
 
 
 
