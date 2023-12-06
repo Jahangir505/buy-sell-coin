@@ -1,5 +1,5 @@
  <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="<?php echo e(app()->getLocale()); ?>">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,31 +10,30 @@
     
     <!-- CSRF Token -->
     
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
-    <title>@yield('page') - {{ setting('site.site_name') }}</title>
+    <title><?php echo $__env->yieldContent('page'); ?> - <?php echo e(setting('site.site_name')); ?></title>
 
     <!-- Styles -->
     <!-- Fonts -->
-    {{-- <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-            <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">  --}}
+    
 
     <!-- Styles -->
-    {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
     
-   {{--  <link rel="icon" href="favicon.ico" type="image/x-icon"> <!-- Favicon--> --}}
+    
+   
 
-    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="<?php echo e(asset('assets/css/bootstrap.min.css')); ?>">
     
-    <link rel="stylesheet" href="{{ asset('assets/css/jquery-jvectormap-2.0.3.min.css')}}"/>
-    <link rel="stylesheet" href="{{ asset('assets/css/morris.min.css')}}" />
+    <link rel="stylesheet" href="<?php echo e(asset('assets/css/jquery-jvectormap-2.0.3.min.css')); ?>"/>
+    <link rel="stylesheet" href="<?php echo e(asset('assets/css/morris.min.css')); ?>" />
     <!-- Custom Css -->
    
-    <link rel="stylesheet" href="{{ asset('assets/css/color_skins.css')}}">
-    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-select.min.css')}}">
-    <link rel="stylesheet" href="{{ asset('assets/css/styles.css')}}">
+    <link rel="stylesheet" href="<?php echo e(asset('assets/css/color_skins.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('assets/css/bootstrap-select.min.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('assets/css/styles.css')); ?>">
     
- <link rel="stylesheet" href="{{ asset('assets/css/main.css')}}">
+ <link rel="stylesheet" href="<?php echo e(asset('assets/css/main.css')); ?>">
  <link rel="stylesheet" href="/assets/front/css/style.css">
 
  <link rel="stylesheet" href="/assets/front/css/bootstrap-4.5.0.min.css">
@@ -56,36 +55,32 @@
     min-height: 30vh !important;
     height: 30vh !important;
     }
-    @impersonating
+    <?php if (app()["auth"]->check() && app()["auth"]->user()->isImpersonated()): ?>
     .top_navbar{background:#fff;}
     section.content::before{background:#fff;}
     .menu_dark .sidebar {background: #fff;box-shadow: none !important;}
     .navbar-nav>li>a .label-count {background-color: #50d38a;color: #fff;}
     .navbar-logo .navbar-brand span {color: #50d38a;}
 
-    @endImpersonating
-    @yield('styles')
+    <?php endif; ?>
+    <?php echo $__env->yieldContent('styles'); ?>
     </style>
 
 
-    @include('partials.footerstyles')
+    <?php echo $__env->make('partials.footerstyles', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
-    <script src="{{ asset('js/vue.min.js') }}"></script>
-    {{--
-    @include('layouts.jquery')
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script> 
-    --}}
+    <script src="<?php echo e(asset('js/vue.min.js')); ?>"></script>
+    
 </head>
-<body class="{{setting('site.color_theme')}} menu_dark" id="app">
+<body class="<?php echo e(setting('site.color_theme')); ?> menu_dark" id="app">
 <style>
 
-@media only screen and (min-width: 993px) {
+@media  only screen and (min-width: 993px) {
   .content {
     margin-left:230px !important;
   }
 }
-@media only screen and (max-width: 993px) {
+@media  only screen and (max-width: 993px) {
   .collapsible,.side-nav fixed,.no-padding  {
     overflow-y:scroll !important;
   }
@@ -94,24 +89,24 @@
 
 <!-- Overlay For Sidebars -->
 <div class="overlay"></div>
-      @include('layouts.topnavbar')
+      <?php echo $__env->make('layouts.topnavbar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
 
-        @auth
+        <?php if(auth()->guard()->check()): ?>
         
                 </div>
             </div>
         </div>
-        @endauth
-        @yield('content')
-        @auth
+        <?php endif; ?>
+        <?php echo $__env->yieldContent('content'); ?>
+        <?php if(auth()->guard()->check()): ?>
         
                     
                         </div>
                        
                
         </div>
-        @endauth
+        <?php endif; ?>
     </div>
       <!-- Scripts -->
   
@@ -130,7 +125,7 @@
   })();
   </script>
   <!--End of Tawk.to Script-->
-  <script src="{{ asset('assets/js/libscripts.bundle.js') }}"></script> <!-- Lib Scripts Plugin Js ( jquery.v3.2.1, Bootstrap4 js) --> 
+  <script src="<?php echo e(asset('assets/js/libscripts.bundle.js')); ?>"></script> <!-- Lib Scripts Plugin Js ( jquery.v3.2.1, Bootstrap4 js) --> 
   
 
 	
@@ -152,16 +147,16 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
 	
-	@yield('js')
+	<?php echo $__env->yieldContent('js'); ?>
     <!-- Jquery Core Js --> 
-    <script src="{{ asset('assets/js/vendorscripts.bundle.js')}}"></script> 
+    <script src="<?php echo e(asset('assets/js/vendorscripts.bundle.js')); ?>"></script> 
    <!-- Morris Plugin Js -->
-    <script src="{{ asset('assets/js/jvectormap.bundle.js')}}"></script> <!-- JVectorMap Plugin Js -->
-    <script src="{{ asset('assets/js/knob.bundle.js')}}"></script> <!-- Jquery Knob-->
+    <script src="<?php echo e(asset('assets/js/jvectormap.bundle.js')); ?>"></script> <!-- JVectorMap Plugin Js -->
+    <script src="<?php echo e(asset('assets/js/knob.bundle.js')); ?>"></script> <!-- Jquery Knob-->
     
-    <script src="{{ asset('assets/js/infobox-1.js')}}"></script>
-    <script src="{{ asset('assets/js/index.js')}}"></script>
+    <script src="<?php echo e(asset('assets/js/infobox-1.js')); ?>"></script>
+    <script src="<?php echo e(asset('assets/js/index.js')); ?>"></script>
     
-    <script src="{{ asset('assets/js/form-validation.js')}}"></script>
+    <script src="<?php echo e(asset('assets/js/form-validation.js')); ?>"></script>
 </body>
 </html>
