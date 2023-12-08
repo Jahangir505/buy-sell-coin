@@ -2,7 +2,7 @@
 @section('content')
 <div class="row">
     @include('partials.sidebar')
-    <div class="col-md-9 " style="padding-right: 0" id="#sendMoney">
+    <div class="col-md-9 " style="padding-right: 40px" id="#sendMoney">
       @if(isset($error))
         <div class="alert alert-danger">{{$error}}</div>
       @endif

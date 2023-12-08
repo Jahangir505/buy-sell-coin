@@ -12,7 +12,7 @@
 
 		
 
-		<div class="col-md-9 " >
+		<div class="col-md-9 " style="padding-right: 40px">
 
         	@include('partials.flash')
 

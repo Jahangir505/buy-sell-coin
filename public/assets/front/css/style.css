@@ -513,6 +513,10 @@ div#payInfo {
     font-size: 17px;
     
     background-color: #d4d6d5;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
    
     
 }
@@ -602,7 +606,7 @@ div#payInfo {
 
 .pay-info {
     border-bottom: 1px solid #a0a6ad;
-    color: black;
+    color: white;
     margin-bottom: 15px;
 }
 
@@ -674,7 +678,7 @@ h5{
     #solde,#online{
         position: relative;
         margin:10px 0px 10px 110%;
-        width: 318%;
+        width: 308%;
         
     }
 
@@ -1532,7 +1536,13 @@ footer .copyright a:hover{
     border: 1px solid #3abaf4;
     background-color: white;
     color: #3abaf4;
+    transition: .5s;
 
+}
+
+.badge-info:hover {
+    background-color: #3abaf4;
+    color: white;
 }
 
 .more_btn_container .badge-success{
@@ -1540,7 +1550,13 @@ footer .copyright a:hover{
     border: 1px solid #54ca68;
     background-color: white;
     color: #54ca68;
+    transition: .5s;
 
+}
+
+.badge-success:hover {
+    background-color: #54ca68;
+    color: white
 }
 
 .more_btn_container .badge-danger{
@@ -1548,7 +1564,13 @@ footer .copyright a:hover{
     border: 1px solid #fc544b;
     background-color: white;
     color: #fc544b;
+    transition: .5s;
 
+}
+
+.badge-danger:hover {
+    background-color: #fc544b;
+    color: white;
 }
 
 .badge{

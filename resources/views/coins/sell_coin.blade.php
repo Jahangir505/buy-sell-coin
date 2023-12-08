@@ -8,19 +8,19 @@
 
     @include('partials.sidebar')
 
-    <div class="col-md-9 " style="padding-right: 0" id="#sendMoney">
+    <div class="col-md-9 " style="padding-right: 40px" id="#sendMoney">
 
       @include('flash')
 
-      <div class="card">
+      <div class="card" style="background: #1f2937;">
 
         <div class="header">
 
-            <h2><strong>{{__("Sell Coins")}}</strong></h2>
+            <h2 style="color: #ffffff"><strong>{{__("Sell Coins")}}</strong></h2>
 
         </div>
 
-        <p class="a_overview">
+        <p class="a_overview text-white">
           {{__("Sell your virtual currency safely with us at the best price, and receive the money directly via the payment method that suits you.")}}
         </p>
 
@@ -36,7 +36,7 @@
 
                       <div class="form-group">
 
-                        <label for="deposit_method">{{__("Select Currency")}}</label>
+                        <label class="text-white" for="deposit_method">{{__("Select Currency")}}</label>
 
                         <select {{$disable}} class="form-control select_coin" name="coin_id" required="">
 
@@ -59,13 +59,13 @@
 
                         <div class="form-group">
 
-                          <label for="deposit_method">{{__("Exchange Rate")}}</label>
+                          <label class="text-white" for="deposit_method">{{__("Exchange Rate")}}</label>
 
                             <div class="input-group mb-3">
 
                               <input {{$disable}} type="text" value="" class="form-control exchange_rate" readonly="" required="" name="exchange_rate">
 
-                              <span class="input-group-text" id="basic-addon1">FCFA/USD</span>
+                              <span class="input-group-text" id="basic-addon1" style="margin-left: -3px;">FCFA/USD</span>
 
                           </div>
 
@@ -81,7 +81,7 @@
 
                         <div class="form-group">
 
-                          <label for="deposit_method">{{__("Amount (USD)")}}</label>
+                          <label class="text-white" for="deposit_method">{{__("Amount (USD)")}}</label>
 
                           <input {{$disable}} type="text" value="" class="form-control amount" required="" name="amount">
 
@@ -93,7 +93,7 @@
 
                         <div class="form-group">
 
-                          <label for="deposit_method">{{__("Amount of currency to sell")}}</label>
+                          <label class="text-white" for="deposit_method">{{__("Amount of currency to sell")}}</label>
 
                           <input {{$disable}} type="text" value="" class="form-control crypto_amount" readonly="" required="" name="crypto_amount">
 
@@ -109,7 +109,7 @@
 
                         <div class="form-group">
 
-                          <label for="deposit_method"><span class="crypto_name"></span> {{__("wallet address")}}</label>
+                          <label class="text-white" for="deposit_method"><span class="crypto_name"></span> {{__("wallet address")}}</label>
 
                           <input {{$disable}} type="text" value="" readonly="" class="form-control wallet_address" required="" name="wallet_address">
 
@@ -121,7 +121,7 @@
 
                       <div class="form-group">
 
-                        <label for="pay_method">{{__("Pay method")}}</label>
+                        <label class="text-white" for="pay_method">{{__("Pay method")}}</label>
 
                         <select {{$disable}} id="pay_method" class="form-control select_coin" name="pay_method" required="">
 

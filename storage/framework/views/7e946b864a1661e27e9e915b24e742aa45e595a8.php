@@ -1,37 +1,37 @@
-@extends('layouts.app')
-
-@section('content')
+<?php $__env->startSection('content'); ?>
 
 <div class="row buy_sell_page">
 
 
-  @php $disable=str_replace(["0","1"],["disabled",""],$admin_online[0]->status); @endphp
+  <?php $disable=str_replace(["0","1"],["disabled",""],$admin_online[0]->status); ?>
 
   
 
-    @include('partials.sidebar')
+    <?php echo $__env->make('partials.sidebar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
     <div class="col-md-9 " style="padding-right: 40px" id="#sendMoney">
 
-      @include('flash')
+      <?php echo $__env->make('flash', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
       <div class="card" style="background: #1f2937;">
 
         <div class="header">
 
-            <h2 style="color: #ffffff"><strong>{{__("Buy Coins")}}</strong></h2>
+            <h2 style="color: #ffffff"><strong><?php echo e(__("Buy Coins")); ?></strong></h2>
 
         </div>
 
         <p class="a_overview text-white">
-          {{__("Buy your virtual currency safely with us at the best price, and receive the money directly via the payment method that suits you.")}}
+          <?php echo e(__("Buy your virtual currency safely with us at the best price, and receive the money directly via the payment method that suits you.")); ?>
+
         </p>
 
         <div class="body">
 
-          <form  class="crypto-form" id="buy_crypto" action="{{route('postBuyCryptoConfirm')}}" method="post" enctype="multipart/form-data">
+          <form  class="crypto-form" id="buy_crypto" action="<?php echo e(route('postBuyCryptoConfirm')); ?>" method="post" enctype="multipart/form-data">
 
-                {{csrf_field()}}
+                <?php echo e(csrf_field()); ?>
+
 
                 <div class="row">
 
@@ -39,17 +39,17 @@
 
                       <div class="form-group">
 
-                        <label for="deposit_method" class="text-white">{{__("Select Currency")}}</label>
+                        <label for="deposit_method" class="text-white"><?php echo e(__("Select Currency")); ?></label>
 
-                        <select {{$disable}} class="form-control select_coin" name="coin_id" required="">
+                        <select <?php echo e($disable); ?> class="form-control select_coin" name="coin_id" required="">
 
 	                        <option>-select-</option>
 
-	                                @foreach($data as $key=>$value)
+	                                <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
-                                    <option data-wallet_address="{{$value->wallet_address}}" data-price="{{$value->price}}" value="{{$value->id}}">{{$value->coin_name}}</option>
+                                    <option data-wallet_address="<?php echo e($value->wallet_address); ?>" data-price="<?php echo e($value->price); ?>" value="<?php echo e($value->id); ?>"><?php echo e($value->coin_name); ?></option>
 
-	                        		@endforeach
+	                        		<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 							
 
 	                      </select>
@@ -62,7 +62,7 @@
 
                         <div class="form-group">
 
-                          <label for="deposit_method" class="text-white">{{__("Exchange Rate")}}</label>
+                          <label for="deposit_method" class="text-white"><?php echo e(__("Exchange Rate")); ?></label>
 
                             <div class="input-group mb-3">
 
@@ -84,9 +84,9 @@
 
                         <div class="form-group">
 
-                          <label for="deposit_method" class="text-white">{{__("Amount (USD)")}}</label>
+                          <label for="deposit_method" class="text-white"><?php echo e(__("Amount (USD)")); ?></label>
 
-                          <input {{$disable}} type="text" value="" class="form-control amount" required="" name="amount">
+                          <input <?php echo e($disable); ?> type="text" value="" class="form-control amount" required="" name="amount">
 
                         </div>
 
@@ -96,7 +96,7 @@
 
                         <div class="form-group">
 
-                          <label for="deposit_method" class="text-white">{{__("Amount of currency to buy")}}</label>
+                          <label for="deposit_method" class="text-white"><?php echo e(__("Amount of currency to buy")); ?></label>
 
                           <input type="text" value="" class="form-control crypto_amount" readonly="" required="" name="crypto_amount">
 
@@ -112,11 +112,11 @@
 
                         <div class="form-group">
 
-                            <label class="text-white" {{$disable}} id="data_user_adresse" data-user-adresse="{{json_encode($custom_method)}}" for="deposit_method">{{ __("Crypto wallet address") }}</label>
+                            <label class="text-white" <?php echo e($disable); ?> id="data_user_adresse" data-user-adresse="<?php echo e(json_encode($custom_method)); ?>" for="deposit_method"><?php echo e(__("Crypto wallet address")); ?></label>
                             
                             <div class="input-group" style="margin-bottom: 0 !important">
 
-                              <select {{$disable}} style="display:none; text-align:left" class=" input-group-text form-control" name="wallet_address" id="buy_custom_paiemen" style="text-align:left">
+                              <select <?php echo e($disable); ?> style="display:none; text-align:left" class=" input-group-text form-control" name="wallet_address" id="buy_custom_paiemen" style="text-align:left">
 
                               </select>
                               <span style="display:none;" class="copieur input-group-text" id="add_method" data-toggle="modal" data-target="#exampleModalCenter" title="Ajouter une adresse">
@@ -157,7 +157,7 @@
 
                                 <label for="type" class="form-label">Type</label>
 
-                                <select {{$disable}} name="type" class="form-control" id="type">
+                                <select <?php echo e($disable); ?> name="type" class="form-control" id="type">
                                     
                                     <option value="cryptomonaie">Cryptomonaie</option>
 
@@ -180,17 +180,17 @@
                                 
                                 <div class="mb-3">
 
-                                    <label for="adresse" class="form-label">{{__("Adresse de paiement*")}}</label>
+                                    <label for="adresse" class="form-label"><?php echo e(__("Adresse de paiement*")); ?></label>
 
-                                    <input {{$disable}} name="number" type="text" class="form-control required" id="adresse" required placeholder="" >
+                                    <input <?php echo e($disable); ?> name="number" type="text" class="form-control required" id="adresse" required placeholder="" >
 
                                 </div>
 
                                 <div class="mb-3">
 
-                                    <label for="adresse" class="form-label">{{__("Nom ou Informations sur le compte*")}}</label>
+                                    <label for="adresse" class="form-label"><?php echo e(__("Nom ou Informations sur le compte*")); ?></label>
 
-                                    <textarea {{$disable}} name="detail" required class="form-control required" id="detail" style="border:1px solid #e4e6fc;" ></textarea>
+                                    <textarea <?php echo e($disable); ?> name="detail" required class="form-control required" id="detail" style="border:1px solid #e4e6fc;" ></textarea>
 
                                 </div>
 
@@ -198,7 +198,7 @@
 
                                 <div class="modal-footer">
 
-                                <button {{$disable}} type="button" class="btn btn-secondary custom_pay_validator" style="background-color:green; color:white; font-weight:normal" data-dismiss="modal">Valider</button>
+                                <button <?php echo e($disable); ?> type="button" class="btn btn-secondary custom_pay_validator" style="background-color:green; color:white; font-weight:normal" data-dismiss="modal">Valider</button>
                                 
                                 </div>
 
@@ -214,17 +214,17 @@
 
                       <div class="form-group">
 
-                        <label class="text-white" for="pay_method">{{__("Pay method")}}</label>
+                        <label class="text-white" for="pay_method"><?php echo e(__("Pay method")); ?></label>
 
-                        <select {{$disable}} id="pay_method" class="form-control select_coin" name="pay_method" required="">
+                        <select <?php echo e($disable); ?> id="pay_method" class="form-control select_coin" name="pay_method" required="">
 
                             
 
-                            @foreach($deposit as $method)
+                            <?php $__currentLoopData = $deposit; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $method): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             
-                              <option value="{{$method->name}}">{{$method->name}}</option>
+                              <option value="<?php echo e($method->name); ?>"><?php echo e($method->name); ?></option>
 
-                            @endforeach
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                               
                         </select>
                         
@@ -249,16 +249,16 @@
 
                   <div class="col-sm-3">
 
-                  @if($disable=="disabled")
+                  <?php if($disable=="disabled"): ?>
 
 
-                    <p {{$disable}} data-toggle="modal" data-target="#offlinemodal" type="submit" class="btn btn-primary submit_form">{{__('Submit')}}</p>
+                    <p <?php echo e($disable); ?> data-toggle="modal" data-target="#offlinemodal" type="submit" class="btn btn-primary submit_form"><?php echo e(__('Submit')); ?></p>
 
-                  @else
+                  <?php else: ?>
 
-                    <button  type="submit" class="btn btn-primary submit_form">{{__('Submit')}}</button>
+                    <button  type="submit" class="btn btn-primary submit_form"><?php echo e(__('Submit')); ?></button>
 
-                  @endif
+                  <?php endif; ?>
                   </div>
 
                 </div>
@@ -273,20 +273,20 @@
       </div>
 
      
-      @if($disable=="disabled")
+      <?php if($disable=="disabled"): ?>
 
-        @include('coins.offlineModal')
+        <?php echo $__env->make('coins.offlineModal', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
-      @endif
+      <?php endif; ?>
         
 
-      @php $context_transactions_to_confirm="Sell Crypto" @endphp
+      <?php $context_transactions_to_confirm="Sell Crypto" ?>
 
-      @include('home.partials.transactions_to_confirm')
+      <?php echo $__env->make('home.partials.transactions_to_confirm', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
-      @include('home.partials.transactions')
+      <?php echo $__env->make('home.partials.transactions', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
       
-      @include('home.partials.footer')
+      <?php echo $__env->make('home.partials.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
     </div>
 
@@ -374,11 +374,13 @@
 
 </script>
 
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('footer')
+<?php $__env->startSection('footer'); ?>
 
-  @include('partials.footer')
+  <?php echo $__env->make('partials.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
-@endsection
+<?php $__env->stopSection(); ?>
 
+
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
