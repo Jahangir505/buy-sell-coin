@@ -111,12 +111,7 @@
                     @endforelse
 
                   </table>
-
-              </div>
-
-          </div>
-
-          @if(@$transactions)
+                  @if(@$transactions)
 
           <div class="panel-footer">
         
@@ -127,6 +122,12 @@
         @else
         
         @endif
+
+              </div>
+
+          </div>
+
+          
 
         <div class="footer">
 

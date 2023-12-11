@@ -70,12 +70,12 @@
 
                     <p><div class="body">
 
-                        <p class="pay-info">{{ __("Payment method") }}: <span class="pay-value" id="pay-method">{{$data->pay_method}}</span></p>
-                        <p class="pay-info">{{ __("Amount due") }}: <span class="pay-value" id="pay-amount">{{$data->crypto_amount}} FCFA</span></p>
+                        <p class="pay-info text-white">{{ __("Payment method") }}: <span class="pay-value" id="pay-method">{{$data->pay_method}}</span></p>
+                        <p class="pay-info text-white">{{ __("Amount due") }}: <span class="pay-value" id="pay-amount">{{$data->crypto_amount}} FCFA</span></p>
                         
                         @if($want=="buy")
 
-                            <div class="pay-info">{{ __("Procedure") }}: 
+                            <div class="pay-info text-white">{{ __("Procedure") }}: 
 
                                 <?php $how_to="";?>
 
@@ -358,7 +358,7 @@
     
                                                     <input type="text" value="{{$data->exchange_rate}}" class="form-control exchange_rate" readonly="" required="" name="exchange_rate">
     
-                                                    <span class="input-group-text" id="basic-addon1">XAF/USD</span>
+                                                    <span class="input-group-text" id="basic-addon1" style="margin-left: -3px;">XAF/USD</span>
     
                                                 </div>
     
@@ -411,7 +411,7 @@
 
                                                 <div class="input-group mb-3">
 
-                                                    <input id="wallet_adress" type="text" value="{{$data->wallet_address}}" class="form-control wallet_address" required="" name="wallet_address" <?if($want=="sell"){echo "readonly";}?>>
+                                                    <input id="wallet_adress" type="text" value="{{$data->wallet_address}}" class="form-control wallet_address" required="" name="wallet_address" @if($want=="sell"){echo "readonly";} @endif>
                                                     
 
                                                     <span  class="copieur input-group-text" id="basic-addon2" title="copier">

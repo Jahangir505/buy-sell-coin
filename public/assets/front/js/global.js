@@ -17,6 +17,9 @@ function custom_method_manager(){
         
 
         let container=document.querySelector("#custom_wallet_adresse");
+        let container1=document.querySelector("#custom_wallet_adresse1");
+        let addStyle=document.querySelector("#add_method2");
+        
 
         let sended=document.querySelector("#buy_pay_address");
 
@@ -31,6 +34,8 @@ function custom_method_manager(){
 
             if(adress.value=="" || detail.value==""){
                 container.style.borderColor="red";
+                container1.style.background="red";
+                addStyle.style.display="none !important";
                 
             }
         })
@@ -274,8 +279,10 @@ function cryptoForm(){
 
     if(document.querySelector('#data_user_adresse')){
 
-        let select=document.querySelector('#buy_custom_paiemen'),news=document.querySelector('#custom_wallet_adresse');
-
+        let select=document.querySelector('#buy_custom_paiemen');
+       let news=document.querySelector('#custom_wallet_adresse');
+       let news1=document.querySelector('#custom_wallet_adresse1');
+       let adress=modal.querySelector("#adresse");
         let data=document.querySelector('#data_user_adresse').getAttribute("data-user-adresse");
 
         let customLevel=document.querySelector("#custom_method");
@@ -285,6 +292,7 @@ function cryptoForm(){
         let closes=modal.querySelector(".custom_pay_validator");
 
         let add=document.querySelector("#add_method");
+        let addStyle=document.querySelector("#add_method2");
 
         data=JSON.parse(data);
 
@@ -295,10 +303,12 @@ function cryptoForm(){
         if(check.length>0){
 
             news.style.display="none"
+            news1.style.display="none"
 
             select.style.display="block"
 
             add && (add.style.display="block")
+            addStyle && (addStyle.style.display="inline-flex")
 
             select.innerHTML="";
 
@@ -350,11 +360,12 @@ function cryptoForm(){
         else{
 
             news.style.display="block"
+            news1.style.display="inline-flex"
 
             select.style.display="none"
 
             add.style.display="none"
-
+            addStyle.style.display="none"
             make_selection()
 
             document.querySelectorAll('.required').forEach(element=>{

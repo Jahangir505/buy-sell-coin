@@ -85,12 +85,7 @@
                     <?php endif; ?>
 
                   </table>
-
-              </div>
-
-          </div>
-
-          <?php if(@$transactions): ?>
+                  <?php if(@$transactions): ?>
 
           <div class="panel-footer">
         
@@ -102,6 +97,12 @@
         <?php else: ?>
         
         <?php endif; ?>
+
+              </div>
+
+          </div>
+
+          
 
         <div class="footer">
 
