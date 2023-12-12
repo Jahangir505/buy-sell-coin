@@ -19,7 +19,7 @@
 
         <?php $lang="fr"; ?> <?php if(session()->has("lang")): ?> session()->get("lang")=="fr" ? $lang="en":$lang="fr"; <?php endif; ?>
 
-        <a style="text-align:center; color:white" href="lang/<?php echo e($lang); ?>" id="lang"><img style="heigh:30px; width:30px; " src="/assets/front/img/<?php echo $lang.".png"; ?>"  alt="lang"><?php echo e(ucfirst(str_replace(["fr","en"],["Francais","English"],$lang))); ?></a>
+        <a style="text-align:center; color:white; display: flex; justify-content: center;" href="lang/<?php echo e($lang); ?>" id="lang"><img style="heigh:30px; width:30px; " src="/assets/front/img/<?php echo $lang.".png"; ?>"  alt="lang"><?php echo e(ucfirst(str_replace(["fr","en"],["Francais","English"],$lang))); ?></a>
     
     
         <div class="copyright">
