@@ -134,8 +134,8 @@
                             
                             <div class="input-group" style="margin-bottom: 0 !important;" >
 
-                              <div class="input-group" style="display: flex; align-items:center;margin-bottom: 0 !important;">
-                                <select {{$disable}} style="display:none; text-align:left" class=" input-group-text form-control" name="wallet_address" id="buy_custom_paiemen" style="z-index: 999; position: relative; background: transparent; margin-right: 15px; border: 1px solid #E9F6EC;">
+                              <div class="input-group" id="buy_custom_paiemen" style="display: flex; align-items:center;margin-bottom: 0 !important;">
+                                <select {{$disable}} class=" input-group-text form-control" name="wallet_address"  style="z-index: 999; position: relative; background: transparent; margin-right: 15px; border: 1px solid #E9F6EC;">
 
                                 </select>
                                 <span id="add_method2" class="input-group-text"  style="margin-left: -3px; background: #E9F6EC; padding: 0 20px; position: absolute; right:0; font-weight: bold; display: none;" data-toggle="modal" data-target="#exampleModalCenter">+</span>
