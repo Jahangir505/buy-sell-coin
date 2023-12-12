@@ -4,7 +4,8 @@
 
 
 
-<div class="panel panel-default">
+<div class="panel panel-default mt-5">
+
 
      <style>
       thead th{
@@ -15,8 +16,10 @@
         .panel-footer{
           margin-top: 15px !important;
         }
+        tr:hover{
+        background-color: #92909047;
+      }
       </style> 
-
 
 
 <div class="panel-body">
@@ -58,13 +61,13 @@
                         <th>id</th>
 
                         <th>{{__('Date')}}</th>
-                        <th>{{__('Status')}}</th>
-
+                        
                         <th>{{__('Operation')}}</th>
-
+                        
                         <th>{{__('Devise')}}</th>
-
+                        
                         <th>{{__('Amount')}} (USD)</th>
+                        <th>{{__('Status')}}</th>
 
                         <th>{{__('More')}}</th>
 
@@ -87,7 +90,7 @@
                                   <td>{{$transaction->id}}</td>
 
                                   <td>{{explode(" ",$transaction->created_at)[0]}}</td>
-                                  <td><span class="badge badge-info">{{__('Pending')}}</span></td>
+                                  
 
 
                                   <td>{{$transaction->table_type}} <br> <a href="#">{{$transaction->deposit_method}}</a></td>
@@ -95,10 +98,11 @@
                                   <td>{{$transaction->crypto}}</a></td>
 
                                   <td>{{$transaction->total_amount}}</td>
+                                  <td><span class="badge badge-info">{{__('Pending')}}</span></td>
 
                                   <td class="more_btn_container"><span data-info="{{json_encode($transaction)}} " data-toggle="modal" data-target="#more_detail" class="badge badge-info transaction_more_btn">{{__('Detail')}}</span></td>
 
-                                  <td></td>
+                                  {{-- <td></td> --}}
 
                                 </tr>
 

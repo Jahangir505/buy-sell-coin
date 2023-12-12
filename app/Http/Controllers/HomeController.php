@@ -122,7 +122,11 @@ class HomeController extends Controller
 
         $buy_to_confirm=DB::table('buy_coins')->where('user_id', $user->id)->where("status",0);
         // $transactionsToConfirm=DB::table('sell_coins')->where('user_id', $user->id)->where("status",0)->union($buy_to_confirm)->orderByDesc("created_at")->get();
-        $transactionsToConfirm=DB::table('sell_coins')->where('user_id', $user->id)->where("status",0)->orderByDesc("created_at")->paginate(10);
+        $sql2 = "SELECT * FROM sell_coins WHERE user_id = $user->id and status = 0 UNION SELECT * FROM buy_coins WHERE user_id = $user->id and status = 0";
+        $queryBuilder2 = DB::table(DB::raw("($sql2) as subquery"));
+
+        $transactionsToConfirm= $queryBuilder2->paginate(10);
+
        //$transactionsToConfirm =  Auth::user()->RecentActivity()->with('Status')->orderby('id','desc')->where('transaction_state_id', 3)->paginate(10);
        // $transactionsToConfirm =  Auth::user()->RecentActivity()->with('Status')->orderby('id','desc')->where('transaction_state_id', 3)->where('money_flow' , '!=', '+')->paginate(10);
        // if($agent->isMobile()){
@@ -183,13 +187,15 @@ class HomeController extends Controller
         // $transactions=DB::table('sell_coins')->where('user_id', $user->id)->where("status","!=",0)->union($buy_confirm)->orderByDesc("created_at")->get();
 
         $sql = "SELECT  * from buy_coins where user_id = $user->id and status != 0 UNION SELECT  * from sell_coins where user_id = $user->id and status != 0";
+
         $queryBuilder = DB::table(DB::raw("($sql) as subquery"));
         $transactions = $queryBuilder->paginate(10);
 
         $sql2 = "SELECT  * from buy_coins where user_id = $user->id and status = 0 UNION SELECT  * from sell_coins where user_id = $user->id and status = 0";
         $queryBuilder2 = DB::table(DB::raw("($sql2) as subquery"));
         $transactionsToConfirm = $queryBuilder2->paginate(10);
-        
+
+ 
         //$transactions = Auth::user()->RecentActivity()->with('Status')->orderby('id','desc')->where('transaction_state_id', '!=', 3)->paginate(10);
        // dd($transactions);
 

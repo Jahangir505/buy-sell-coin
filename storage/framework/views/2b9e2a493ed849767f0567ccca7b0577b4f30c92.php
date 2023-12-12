@@ -16,7 +16,7 @@
 
         <meta name="author" content="Grayrids">
 
-        <title> {{ setting('site.description') }} </title>
+        <title> <?php echo e(setting('site.description')); ?> </title>
 
         <link rel="shortcut icon" href="/assets/front/img/2.png" type="image/png">
 
@@ -53,14 +53,14 @@
 
     <div class="headers">
         <p class="logo"></p>
-        <h1 class="title">{{__(ucfirst($want)." coins")}}<img src="https://probuysellcoin.com/assets/front/img/money-bag.png" class="buy-coin" alt="BUY SELL COIN"></h1>
+        <h1 class="title"><?php echo e(__(ucfirst($want)." coins")); ?><img src="https://probuysellcoin.com/assets/front/img/money-bag.png" class="buy-coin" alt="BUY SELL COIN"></h1>
     </div>
 
     
 
-    <form  class="crypto-form confirm_form" id="@php echo $want."_crypto"@endphp" @if($want=="buy") action="{{route('postBuyCrypto')}}" @endif @if($want=="sell") action="{{route('postSellCrypto')}}" @endif method="post" enctype="multipart/form-data">
+    <form  class="crypto-form confirm_form" id="<?php echo $want."_crypto"?>" <?php if($want=="buy"): ?> action="<?php echo e(route('postBuyCrypto')); ?>" <?php endif; ?> <?php if($want=="sell"): ?> action="<?php echo e(route('postSellCrypto')); ?>" <?php endif; ?> method="post" enctype="multipart/form-data">
             
-        <div class="row card p-3" id="confirmForm">
+        <div class="row" id="confirmForm" style="background: #1f2937; margin: 10px;; padding: 10px;">
 
             
                 <div id="payInfo" class="col">
@@ -70,64 +70,64 @@
 
                     <p><div class="body">
 
-                        <p class="pay-info ">{{ __("Payment method") }}: <span class="pay-value" id="pay-method">{{$data->pay_method}}</span></p>
-                        <p class="pay-info ">{{ __("Amount due") }}: <span class="pay-value" id="pay-amount">{{$data->crypto_amount}} FCFA</span></p>
+                        <p class="pay-info text-white"><?php echo e(__("Payment method")); ?>: <span class="pay-value" id="pay-method"><?php echo e($data->pay_method); ?></span></p>
+                        <p class="pay-info text-white"><?php echo e(__("Amount due")); ?>: <span class="pay-value" id="pay-amount"><?php echo e($data->crypto_amount); ?> FCFA</span></p>
                         
-                        @if($want=="buy")
+                        <?php if($want=="buy"): ?>
 
-                            <div class="pay-info ">{{ __("Procedure") }}: 
+                            <div class="pay-info text-white"><?php echo e(__("Procedure")); ?>: 
 
                                 <?php $how_to="";?>
 
-                                @foreach($deposit as $key=>$value)
+                                <?php $__currentLoopData = $deposit; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
-                                    <span data-deposit_name="{{$value->name}}" class="hide data-deposit">{{$value->how_to}}</span>
+                                    <span data-deposit_name="<?php echo e($value->name); ?>" class="hide data-deposit"><?php echo e($value->how_to); ?></span>
 
                                     <?php if($value->name==$data->pay_method){$how_to=$value->how_to;}?>
 
-                                @endforeach
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                                 <span class="pay-value" id="pay-description"><br><? echo $how_to ?></span>
 
                             </div>
 
-                        @endif
+                        <?php endif; ?>
 
-                        @if($want=="sell")
+                        <?php if($want=="sell"): ?>
 
-                            @foreach($deposit as $key=>$value)
+                            <?php $__currentLoopData = $deposit; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
                             <?php if($value->name==$data->pay_method){
                                 $selected_coin_name=$value->name;
                             }?>
-                            @endforeach
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                             <div class="form-group">
 
-                                <label id="data_user_adresse" data-user-adresse="{{json_encode($custom_method)}}" for="pay_address">{{ __("Send your information to receive payment (number + name + country)") }}</label>
+                                <label id="data_user_adresse" data-user-adresse="<?php echo e(json_encode($custom_method)); ?>" for="pay_address"><?php echo e(__("Send your information to receive payment (number + name + country)")); ?></label>
 
                                 <?php $ss="display:none;";$ns="display:block;";?>
 
-                                @foreach($custom_method as $cm)
+                                <?php $__currentLoopData = $custom_method; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cm): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 
                                     <?php if($cm->name==$selected_coin_name){$ss="display:block;";$ns="display:none;";}?>
                                    
 
-                                @endforeach
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                                 <div class="input-group mb-3">
 
-                                    <select style="{{$ss}} text-align:left" class=" form-control" name="wallet_address" id="buy_custom_paiemen" style="text-align:left">
+                                    <select style="<?php echo e($ss); ?> text-align:left" class=" form-control" name="wallet_address" id="buy_custom_paiemen" style="text-align:left">
 
-                                    @foreach($custom_method as $cm)
+                                    <?php $__currentLoopData = $custom_method; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cm): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
-                                        @if($cm->name==$selected_coin_name)
+                                        <?php if($cm->name==$selected_coin_name): ?>
 
-                                            <option value="{{$cm->number}}">{{$cm->number}}</option>
+                                            <option value="<?php echo e($cm->number); ?>"><?php echo e($cm->number); ?></option>
 
-                                        @endif
+                                        <?php endif; ?>
 
-                                    @endforeach
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                                     </select><br>
 
@@ -139,7 +139,7 @@
 
                                 </div>
 
-                                <p style="{{$ns}}" id="custom_wallet_adresse" data-toggle="modal" data-target="#Modal2" value="" class="form-control"  style="margin-right:7px">Ajouter une adresse de porte feuille</p>
+                                <p style="<?php echo e($ns); ?>" id="custom_wallet_adresse" data-toggle="modal" data-target="#Modal2" value="" class="form-control"  style="margin-right:7px">Ajouter une adresse de porte feuille</p>
 
                                 <input id="buy_pay_address" type="hidden" name="wallet_address">
 
@@ -183,7 +183,7 @@
                                     
                                     <select name="nom" class="form-control" id="nom">
                                     
-                                        <option value="{{$selected_coin_name}}">{{$selected_coin_name}}</option>
+                                        <option value="<?php echo e($selected_coin_name); ?>"><?php echo e($selected_coin_name); ?></option>
                                         
                                     </select>
 
@@ -192,7 +192,7 @@
                                     
                                     <div class="mb-3">
 
-                                        <label for="adresse" class="form-label">{{__("Adresse de paiement*")}}</label>
+                                        <label for="adresse" class="form-label"><?php echo e(__("Adresse de paiement*")); ?></label>
 
                                         <input name="number" type="text" class="form-control required" id="adresse" placeholder="" >
 
@@ -200,7 +200,7 @@
 
                                     <div class="mb-3">
 
-                                        <label for="adresse" class="form-label">{{__("Nom ou Informations sur le compte*")}}</label>
+                                        <label for="adresse" class="form-label"><?php echo e(__("Nom ou Informations sur le compte*")); ?></label>
 
                                         <textarea name="detail" class="form-control required" id="detail" style="border:1px solid #e4e6fc;" ></textarea>
 
@@ -223,13 +223,13 @@
                                 
                             </div>
 
-                        @endif
+                        <?php endif; ?>
 
-                        @if($want=="buy")
+                        <?php if($want=="buy"): ?>
 
                             <div class="form-group" style="display:none;">
 
-                                <label for="pay_address">{{ __("Confirm delivery address") }}</label>
+                                <label for="pay_address"><?php echo e(__("Confirm delivery address")); ?></label>
 
                                 <input type="text"  class="form-control"   id="confirm-wallet">
 
@@ -237,15 +237,16 @@
                                 
                             </div>
 
-                        @endif
+                        <?php endif; ?>
 
                            
 
-                                    {{csrf_field()}}
+                                    <?php echo e(csrf_field()); ?>
+
 
                                     <div class="form-group">
 
-                                        <label for="deposit_method">{{ __("Send proof of transaction") }} *</label>
+                                        <label for="deposit_method"><?php echo e(__("Send proof of transaction")); ?> *</label>
 
                                         <input type="file" accept=".jpg, .jpeg, .png" class="form-control" required="" name="receipt" id="receipt">
 
@@ -265,28 +266,28 @@
 
                                     <div class="clearfix"></div>
 
-                                    <br><div>
-                                        <a href="https://wa.me/{{DB::table('phone_support')->find(1)->phone}}" class="row help " target="_blank" style="background: #E9F6EC !important">
+                                    <br><br><div>
+                                        <a href="https://wa.me/<?php echo e(DB::table('phone_support')->find(1)->phone); ?>" class="row help " target="_blank">
 
                                             <div class="col img">
                                                 <img src="assets/front/img/whatsapp.png" alt="">
                                             </div>
 
                                             <div class="col-10">
-                                                <span> {{__("Need help? click here to contact us on whatsApp at")}} {{DB::table('phone_support')->find(1)->phone}}</span>
+                                                <span> <?php echo e(__("Need help? click here to contact us on whatsApp at")); ?> <?php echo e(DB::table('phone_support')->find(1)->phone); ?></span>
                                             </div>
                                         </a>
 
                                     </div>
 
-                                    <br><div class="row btn-zn">
+                                    <br><br><div class="row btn-zn">
 
                                         <div class="col">
-                                            <a href="{{route('home')}}" class="btn btn-common" style="background-color:gray">{{ __("Cancel") }}</a>
+                                            <a href="<?php echo e(route('home')); ?>" class="btn btn-common" style="background-color:gray"><?php echo e(__("Cancel")); ?></a>
                                         </div>
 
                                         <div class="col">
-                                            <button class="btn btn-common submit_form" id="submit" type="submit">{{ __("Confirm") }}</button>
+                                            <button class="btn btn-common submit_form" id="submit" type="submit"><?php echo e(__("Confirm")); ?></button>
                                         </div>
 
                                     </div>
@@ -297,7 +298,7 @@
                     </div>
    
                 </div>
-                <div class="col" id="resume">
+                <div class="col" id="resume" style="background: #aeaeae38; padding: 20px;">
 
                         
 
@@ -305,13 +306,14 @@
 
 
 
-                    <h6> @if($want=="sell"){{ __("Sale transaction summary") }} @else {{ __("Purchase Transaction Summary")}} @endif</h6>
+                    <h6 style="color: #ffffff"> <?php if($want=="sell"): ?><?php echo e(__("Sale transaction summary")); ?> <?php else: ?> <?php echo e(__("Purchase Transaction Summary")); ?> <?php endif; ?></h6>
 
                     <p><div class="body">
 
                             
 
-                                    {{csrf_field()}}
+                                    <?php echo e(csrf_field()); ?>
+
 
                                     
 
@@ -321,47 +323,44 @@
                                         <div class="col">
                                             <div class="form-group">
 
-                                                <label for="deposit_method">{{ __("Choose the currency to $want") }}</label>
+                                                <label for="deposit_method"><?php echo e(__("Choose the currency to $want")); ?></label>
     
-                                                <div class="input-group">
-                                                    <select class="form-control select_coin" name="coin_id" required="" style="z-index: 999; position: relative; background: transparent; margin-right: 15px; border: 2px solid #E9F6EC;">
+                                                <select class="form-control select_coin" name="coin_id" required="">
     
                                                     
     
-                                                        @foreach($coin_data as $key=>$value)
-        
-                                                            @if($value->id==$data->coin_id)
-        
-                                                             @php   $selected_coin_name=$value->coin_name; @endphp
-                                                            
-                                                                <option data-qr="{{$value->qr_code}}" data-wallet_address="{{$value->wallet_address}}" data-price="{{$value->price}}" data-price = "" value="{{$value->id}}">{{$value->coin_name}}</option>
-        
-                                                            @endif
-        
-                                                        @endforeach
-        
-                                                        @foreach($coin_data as $key=>$value)
-        
-                                                            <option data-qr="{{$value->qr_code}}" data-wallet_address="{{$value->wallet_address}}" data-price="{{$value->price}}" value="{{$value->id}}">{{$value->coin_name}}</option>
-        
-                                                        @endforeach
-        
-                                                    </select>
-                                                    <span class="input-group-text" id="basic-addon1" style="margin-left: -3px; background: #E9F6EC; padding: 0 25px; position: absolute; right:0; height: 100%;border: 2px solid #E9F6EC;"></span>
-                                                </div>
+                                                    <?php $__currentLoopData = $coin_data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+    
+                                                        <?php if($value->id==$data->coin_id): ?>
+    
+                                                         <?php   $selected_coin_name=$value->coin_name; ?>
+                                                        
+                                                            <option data-qr="<?php echo e($value->qr_code); ?>" data-wallet_address="<?php echo e($value->wallet_address); ?>" data-price="<?php echo e($value->price); ?>" data-price = "" value="<?php echo e($value->id); ?>"><?php echo e($value->coin_name); ?></option>
+    
+                                                        <?php endif; ?>
+    
+                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+    
+                                                    <?php $__currentLoopData = $coin_data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+    
+                                                        <option data-qr="<?php echo e($value->qr_code); ?>" data-wallet_address="<?php echo e($value->wallet_address); ?>" data-price="<?php echo e($value->price); ?>" value="<?php echo e($value->id); ?>"><?php echo e($value->coin_name); ?></option>
+    
+                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+    
+                                                </select>
     
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="form-group">
 
-                                                <label for="deposit_method">{{ __("Exchange Rate") }}</label>
+                                                <label for="deposit_method"><?php echo e(__("Exchange Rate")); ?></label>
     
                                                 <div class="input-group mb-3">
     
-                                                    <input type="text" value="{{$data->exchange_rate}}" class="form-control exchange_rate" readonly="" required="" name="exchange_rate" style="border: 2px solid #E9F6EC;">
+                                                    <input type="text" value="<?php echo e($data->exchange_rate); ?>" class="form-control exchange_rate" readonly="" required="" name="exchange_rate">
     
-                                                    <span class="input-group-text" id="basic-addon1" style="margin-left: -3px;background: #E9F6EC;border: 1px solid #E9F6EC;">XAF/USD</span>
+                                                    <span class="input-group-text" id="basic-addon1" style="margin-left: -3px;">XAF/USD</span>
     
                                                 </div>
     
@@ -382,18 +381,18 @@
                                             <div class="col">
                                                 <div class="form-group">
 
-                                                    <label for="deposit_method">{{ __("Amount") }} (USD))</label>
+                                                    <label for="deposit_method"><?php echo e(__("Amount")); ?> (USD))</label>
     
-                                                    <input type="text" value="{{$data->amount}}" class="form-control amount" required="" name="amount" style="border: 2px solid #E9F6EC;">
+                                                    <input type="text" value="<?php echo e($data->amount); ?>" class="form-control amount" required="" name="amount">
     
                                                 </div>
                                             </div>
                                             <div class="col">
                                                 <div class="form-group">
                                                 
-                                                    <label for="deposit_method">{{ __("Amount to ".str_replace(["sell","buy"],["perceive","be paid"],$want)) }}</label>
+                                                    <label for="deposit_method"><?php echo e(__("Amount to ".str_replace(["sell","buy"],["perceive","be paid"],$want))); ?></label>
     
-                                                    <input id="crypto_amount" type="text" value="{{$data->crypto_amount}}" class="form-control crypto_amount" readonly="" required="" name="crypto_amount" style="border: 2px solid #E9F6EC;">
+                                                    <input id="crypto_amount" type="text" value="<?php echo e($data->crypto_amount); ?>" class="form-control crypto_amount" readonly="" required="" name="crypto_amount">
     
                                                 </div>
                                             </div>
@@ -406,15 +405,15 @@
                                             
 
                                       
-                                            @if($want=="sell")
+                                            <?php if($want=="sell"): ?>
 
                                             <div class="form-group">
 
-                                                <label for="deposit_method"> {{ __("Send currency to this wallet") }}</label>
+                                                <label for="deposit_method"> <?php echo e(__("Send currency to this wallet")); ?></label>
 
                                                 <div class="input-group mb-3">
 
-                                                    <input id="wallet_adress" type="text" value="{{$data->wallet_address}}" class="form-control wallet_address" required="" name="wallet_address" @if($want=="sell"){echo "readonly";} @endif style="border: 2px solid #E9F6EC;">
+                                                    <input id="wallet_adress" type="text" value="<?php echo e($data->wallet_address); ?>" class="form-control wallet_address" required="" name="wallet_address" <?php if($want=="sell"): ?>{echo "readonly";} <?php endif; ?>>
                                                     
 
                                                     <span  class="copieur input-group-text" id="basic-addon2" title="copier">
@@ -446,13 +445,13 @@
                                                     <div class="modal-body">
                                                         <?$img="";?>
 
-                                                        @foreach($coin_data as $key=>$value)
+                                                        <?php $__currentLoopData = $coin_data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
                                                             <?php if($value->id==$data->coin_id){$img=$value->qr_code;}?>
 
-                                                        @endforeach
+                                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-                                                        <img src="assets/qr_code/{{$img}}" alt="">
+                                                        <img src="assets/qr_code/<?php echo e($img); ?>" alt="">
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -463,29 +462,28 @@
                                             </div>
 
 
-                                            @else
+                                            <?php else: ?>
 
                                                 <div class="form-group">
 
                                                     
-                                                    <label id="data_user_adresse" data-user-adresse="{{json_encode($custom_method)}}" for="deposit_method"> {{ __("Receiver wallet address") }}</label>
+                                                    <label id="data_user_adresse" data-user-adresse="<?php echo e(json_encode($custom_method)); ?>" for="deposit_method"> <?php echo e(__("Receiver wallet address")); ?></label>
                                                     
                                                     <div class="input-group mb-3">
 
                                                         <select style=" text-align:left" class=" input-group-text form-control" name="wallet_address" id="buy_custom_paiemen" style="text-align:left">
 
-                                                            @foreach($custom_method as $cm)
+                                                            <?php $__currentLoopData = $custom_method; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cm): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
-                                                                @if($cm->name==$selected_coin_name)
+                                                                <?php if($cm->name==$selected_coin_name): ?>
 
-                                                                    <option value="{{$cm->number}}">{{$cm->number}}</option>
+                                                                    <option value="<?php echo e($cm->number); ?>"><?php echo e($cm->number); ?></option>
 
-                                                                @endif
+                                                                <?php endif; ?>
 
-                                                            @endforeach
+                                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-                                                        </select>
-                                                        <br>
+                                                        </select><br>
 
                                                         <span   class="copieur input-group-text" id="add_method" data-toggle="modal" data-target="#exampleModalCenter" title="Ajouter une adresse">
 
@@ -539,15 +537,15 @@
                                                             
                                                             <select name="nom" class="form-control" id="nom">
                                                             
-                                                            @foreach($coin_data as $key=>$value)
+                                                            <?php $__currentLoopData = $coin_data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
 
-                                                                @if($value->id==$data->coin_id)
+                                                                <?php if($value->id==$data->coin_id): ?>
                                                                
-                                                                    <option  value="{{$value->coin_name}}">{{$value->coin_name}}</option>
+                                                                    <option  value="<?php echo e($value->coin_name); ?>"><?php echo e($value->coin_name); ?></option>
 
-                                                                @endif
+                                                                <?php endif; ?>
 
-                                                            @endforeach
+                                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                                                 
                                                             </select>
 
@@ -556,7 +554,7 @@
                                                             
                                                             <div class="mb-3">
 
-                                                                <label for="adresse" class="form-label">{{__("Adresse de paiement*")}}</label>
+                                                                <label for="adresse" class="form-label"><?php echo e(__("Adresse de paiement*")); ?></label>
 
                                                                 <input name="number" type="text" class="form-control required" id="adresse"  placeholder="" >
 
@@ -564,7 +562,7 @@
 
                                                             <div class="mb-3">
 
-                                                                <label for="adresse" class="form-label">{{__("Nom ou Informations sur le compte*")}}</label>
+                                                                <label for="adresse" class="form-label"><?php echo e(__("Nom ou Informations sur le compte*")); ?></label>
 
                                                                 <textarea name="detail" class="form-control required" id="detail" style="border:1px solid #e4e6fc;" ></textarea>
 
@@ -584,32 +582,29 @@
 
                                                 </div>
 
-                                            @endif
+                                            <?php endif; ?>
 
                                         <div class="form-group">
 
-                                            <label for="pay_method">{{ __("Pay method") }}</label>
+                                            <label for="pay_method"><?php echo e(__("Pay method")); ?></label>
 
-                                            <div class="input-group">
-                                                <select id="pay_method" class="form-control select_coin" name="pay_method" required style="z-index: 999; position: relative; background: transparent; margin-right: 15px; border: 2px solid #E9F6EC;">
+                                            <select id="pay_method" class="form-control select_coin" name="pay_method" required>
 
-                                                    <option value="{{$data->pay_method}}">{{$data->pay_method}}</option>
-    
-                                                    @foreach($deposit as $key=>$value)
-    
-                                                        @if($value->name!=$data->pay_method)
-    
-                                                            <option data-price = "" value="{{$value->id}}">{{$value->name}}</option>
-    
-                                                        @endif
-    
-                                                    @endforeach
-    
-                                                
-                                                                
-                                                </select>
-                                                <span class="input-group-text" id="basic-addon1" style="margin-left: -3px; background: #E9F6EC; padding: 0 25px; position: absolute; right:0; height: 100%;border: 2px solid #E9F6EC;"></span>
-                                            </div>
+                                                <option value="<?php echo e($data->pay_method); ?>"><?php echo e($data->pay_method); ?></option>
+
+                                                <?php $__currentLoopData = $deposit; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+
+                                                    <?php if($value->name!=$data->pay_method): ?>
+
+                                                        <option data-price = "" value="<?php echo e($value->id); ?>"><?php echo e($value->name); ?></option>
+
+                                                    <?php endif; ?>
+
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+
+                                            
+                                                            
+                                            </select>
                                         </div>
                                         </div>
 

@@ -6,9 +6,16 @@
 
 <div class="row buy_sell_page">
 
+  <style>
+    .btn:hover{
+      background: #E9F6EC !important;
+      box-shadow: 0 3px 8px 0 #E9F6EC !important;
+    }
+  </style>
+
     @include('partials.sidebar')
 
-    <div class="col-md-9 " style="padding-right: 0" id="#sendMoney">
+    <div class="col-md-9 " style="padding-right: 40px" id="#sendMoney">
 
       @include('flash')
 
@@ -20,7 +27,7 @@
 
         </div>
 
-        <p class="a_overview">
+        <p class="a_overview ">
           {{__("Sell your virtual currency safely with us at the best price, and receive the money directly via the payment method that suits you.")}}
         </p>
 
@@ -36,20 +43,23 @@
 
                       <div class="form-group">
 
-                        <label for="deposit_method">{{__("Select Currency")}}</label>
+                        <label class="" for="deposit_method">{{__("Select Currency")}}</label>
 
-                        <select {{$disable}} class="form-control select_coin" name="coin_id" required="">
+                        <div class="input-group mb-3">
+                          <select {{$disable}} class="form-control select_coin" name="coin_id" required="" style="z-index: 999; position: relative; background: transparent; margin-right: 15px; border: 2px solid #E9F6EC;">
 
-	                        <option>-select-</option>
-
-	                                @foreach($data as $key=>$value)
-
-                                    <option data-wallet_address="{{$value->wallet_address}}" data-price="{{$value->price}}" value="{{$value->id}}">{{$value->coin_name}}</option>
-
-	                        		@endforeach
-							
-
-	                      </select>
+                            <option>-select-</option>
+  
+                                    @foreach($data as $key=>$value)
+  
+                                      <option data-wallet_address="{{$value->wallet_address}}" data-price="{{$value->price}}" value="{{$value->id}}">{{$value->coin_name}}</option>
+  
+                                @endforeach
+                
+  
+                          </select>
+                          <span class="input-group-text" id="basic-addon1" style="margin-left: -3px; background: #E9F6EC; padding: 0 25px; position: absolute; right:0;"></span>
+                        </div>
 
                       </div>
 
@@ -59,13 +69,13 @@
 
                         <div class="form-group">
 
-                          <label for="deposit_method">{{__("Exchange Rate")}}</label>
+                          <label class="" for="deposit_method">{{__("Exchange Rate")}}</label>
 
                             <div class="input-group mb-3">
 
-                              <input {{$disable}} type="text" value="" class="form-control exchange_rate" readonly="" required="" name="exchange_rate">
+                              <input {{$disable}} type="text" value="" class="form-control exchange_rate" readonly="" required="" name="exchange_rate" style="border: 2px solid #E9F6EC;">
 
-                              <span class="input-group-text" id="basic-addon1">FCFA/USD</span>
+                              <span class="input-group-text" id="basic-addon1" style="margin-left: -3px; background: #E9F6EC;">FCFA/USD</span>
 
                           </div>
 
@@ -81,10 +91,12 @@
 
                         <div class="form-group">
 
-                          <label for="deposit_method">{{__("Amount (USD)")}}</label>
+                          <label class="" for="deposit_method">{{__("Amount (USD)")}}</label>
 
-                          <input {{$disable}} type="text" value="" class="form-control amount" required="" name="amount">
-
+                          <div class="input-group mb-3">
+                            <input {{$disable}} type="text" value="" class="form-control amount" required="" name="amount" style="border: 2px solid #E9F6EC;">
+                          <span class="input-group-text" id="basic-addon1" style="margin-left: -3px; background: #E9F6EC; padding: 0 22px">$</span>
+                          </div>
                         </div>
 
                     </div>
@@ -93,10 +105,10 @@
 
                         <div class="form-group">
 
-                          <label for="deposit_method">{{__("Amount of currency to sell")}}</label>
+                          <label class="" for="deposit_method">{{__("Amount of currency to sell")}}</label>
 
-                          <input {{$disable}} type="text" value="" class="form-control crypto_amount" readonly="" required="" name="crypto_amount">
-
+                          <input {{$disable}} type="text" value="" class="form-control crypto_amount" readonly="" required="" name="crypto_amount" style="border: 2px solid #E9F6EC;">
+                            
                         </div>
 
                     </div>
@@ -109,10 +121,17 @@
 
                         <div class="form-group">
 
-                          <label for="deposit_method"><span class="crypto_name"></span> {{__("wallet address")}}</label>
+                          <label class="" for="deposit_method"><span class="crypto_name"></span> {{__("wallet address")}}</label>
 
-                          <input {{$disable}} type="text" value="" readonly="" class="form-control wallet_address" required="" name="wallet_address">
-
+                          <div class="input-group">
+                            <input {{$disable}} type="text" value="" readonly="" class="form-control wallet_address" required="" name="wallet_address" >
+                            <span style="margin-left: -3px; background: #E9F6EC; padding: 0 20px; display: flex; align-items:center;">
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-4 h-4">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a2.25 2.25 0 00-2.25-2.25H15a3 3 0 11-6 0H5.25A2.25 2.25 0 003 12m18 0v6a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 18v-6m18 0V9M3 12V9m18 0a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 9m18 0V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v3" />
+                              </svg>
+                              
+                            </span>
+                          </div>
                         </div>
 
                     </div>
@@ -121,7 +140,7 @@
 
                       <div class="form-group">
 
-                        <label for="pay_method">{{__("Pay method")}}</label>
+                        <label class="" for="pay_method">{{__("Pay method")}}</label>
 
                         <select {{$disable}} id="pay_method" class="form-control select_coin" name="pay_method" required="">
 
@@ -163,7 +182,7 @@
 
                   @else
 
-                  <button  type="submit" class="btn btn-primary submit_form">{{__('Submit')}}</button>
+                  <button  type="submit" class="btn btn-default submit_form" style="border: 2px solid #E9F6EC">{{__('Submit')}}</button>
 
                   @endif
 
