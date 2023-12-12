@@ -606,7 +606,7 @@ div#payInfo {
 
 .pay-info {
     border-bottom: 1px solid #a0a6ad;
-    color: white;
+    color: #000;
     margin-bottom: 15px;
 }
 
@@ -678,7 +678,7 @@ h5{
     #solde,#online{
         position: relative;
         margin:10px 0px 10px 110%;
-        width: 308%;
+        width: 300%;
         
     }
 

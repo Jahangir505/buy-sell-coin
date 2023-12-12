@@ -4,10 +4,22 @@
 
 
 
-<div class="panel panel-default">
+<div class="panel panel-default mt-5">
 
-      
 
+     <style>
+      thead th{
+        background: #22be68 !important;
+        color: #ffffff !important;
+      }
+        tr:nth-child(even){background-color: #f2f2f2}
+        .panel-footer{
+          margin-top: 15px !important;
+        }
+        tr:hover{
+        background-color: #92909047;
+      }
+      </style> 
 
 
 <div class="panel-body">
@@ -49,13 +61,13 @@
                         <th>id</th>
 
                         <th><?php echo e(__('Date')); ?></th>
-                        <th><?php echo e(__('Status')); ?></th>
-
+                        
                         <th><?php echo e(__('Operation')); ?></th>
-
+                        
                         <th><?php echo e(__('Devise')); ?></th>
-
+                        
                         <th><?php echo e(__('Amount')); ?> (USD)</th>
+                        <th><?php echo e(__('Status')); ?></th>
 
                         <th><?php echo e(__('More')); ?></th>
 
@@ -78,7 +90,7 @@
                                   <td><?php echo e($transaction->id); ?></td>
 
                                   <td><?php echo e(explode(" ",$transaction->created_at)[0]); ?></td>
-                                  <td><span class="badge badge-info"><?php echo e(__('Pending')); ?></span></td>
+                                  
 
 
                                   <td><?php echo e($transaction->table_type); ?> <br> <a href="#"><?php echo e($transaction->deposit_method); ?></a></td>
@@ -86,10 +98,11 @@
                                   <td><?php echo e($transaction->crypto); ?></a></td>
 
                                   <td><?php echo e($transaction->total_amount); ?></td>
+                                  <td><span class="badge badge-info"><?php echo e(__('Pending')); ?></span></td>
 
                                   <td class="more_btn_container"><span data-info="<?php echo e(json_encode($transaction)); ?> " data-toggle="modal" data-target="#more_detail" class="badge badge-info transaction_more_btn"><?php echo e(__('Detail')); ?></span></td>
 
-                                  <td></td>
+                                  
 
                                 </tr>
 

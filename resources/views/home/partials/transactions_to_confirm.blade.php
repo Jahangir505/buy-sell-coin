@@ -6,21 +6,20 @@
 
 <div class="panel panel-default mt-5">
 
-  <style>
-    thead th{
-      background: #22be68 !important;
-      color: #ffffff !important;
-    }
-      tr:nth-child(even){background-color: #92909047}
-      .panel-footer{
-        margin-top: 15px !important;
-      }
 
-      tr:hover{
+     <style>
+      thead th{
+        background: #22be68 !important;
+        color: #ffffff !important;
+      }
+        tr:nth-child(even){background-color: #f2f2f2}
+        .panel-footer{
+          margin-top: 15px !important;
+        }
+        tr:hover{
         background-color: #92909047;
       }
-    </style> 
-
+      </style> 
 
 
 <div class="panel-body">

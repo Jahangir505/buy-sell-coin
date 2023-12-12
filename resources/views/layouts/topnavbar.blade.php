@@ -241,17 +241,17 @@
           </div>
           <ul class="sidebar-menu">
             
-            <li class="dropdown active">
+            <li class="dropdown {{ request()->routeIs('home') ? 'active' : '' }}">
               <a href="/home">
                 <i data-feather="airplay"></i><span>{{ __("Dashboard") }}</span></a>
               
             </li>
             
-            <li class="dropdown">
+            <li class="dropdown {{ request()->routeIs('affiliation') ? 'active' : '' }}">
               <a href="/affiliation"><i data-feather="share-2"></i><span>{{ __("Affiliation") }}</span></a>
               
             </li>
-            <li class="dropdown">
+            <li class="dropdown {{ request()->routeIs('withdrawal/request') ? 'active' : '' }}">
               <a href="https://probuysellcoin.com/withdrawal/request"><i data-feather="arrow-left-circle"></i><span>{{ __("Withdraw Earning") }}</span></a>
               
             </li>
@@ -260,7 +260,7 @@
               <a href="/buyCoin"><i data-feather="shopping-cart"></i><span>{{ __("Buy Coins") }}</span></a>
               
             </li>
-            <li class="dropdown">
+            <li class="dropdown {{ request()->routeIs('sellCoin') ? 'active' : '' }}">
               <a href="{{route('sellCoin')}}"><i data-feather="dollar-sign"></i><span>{{ __("Sell Coins") }}</span></a>
               
             </li>
@@ -275,19 +275,19 @@
              
             </li> --}}
            
-            <li class="dropdown">
+            <li class="dropdown {{ request()->routeIs('info') ? 'active' : '' }}">
               <a href="/profile/info"><i
                   data-feather="settings"></i><span>{{ __("Settings") }}</span></a>
              
             </li>
-
-            <li class="dropdown">
+            {{ request()->routeIs() }}
+            <li class="dropdown {{ request()->routeIs('customer_paiement') ? 'active' : '' }}">
               <a href="/customer_paiement"><i
                   data-feather="database"></i><span>{{ __("Paiement method") }}</span></a>
              
             </li>
 
-            <li class="dropdown">
+            <li class="dropdown {{ request()->routeIs('doc') ? 'active' : '' }}">
               <a href="/doc"><i
                   data-feather="book"></i><span>{{ __("Documentation") }}</span></a>
              

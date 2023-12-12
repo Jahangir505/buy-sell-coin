@@ -12,7 +12,12 @@
 
     input:read-only {
     background-color: #e9f6ec38; /* Change to your desired readonly background color */
+    
   }
+  .btn:hover{
+      background: #E9F6EC !important;
+      box-shadow: 0 3px 8px 0 #E9F6EC !important;
+    }
   </style>
 
 
@@ -54,7 +59,7 @@
 
                         <div class="input-group mb-3">
 
-                          <select {{$disable}} class="form-control select_coin" name="coin_id" required="" style="z-index: 999; position: relative; background: transparent; margin-right: 15px; border: 1px solid #E9F6EC;">
+                          <select {{$disable}} class="form-control select_coin" name="coin_id" required="" style="z-index: 1; position: relative; background: transparent; margin-right: 15px; border: 2px solid #E9F6EC;">
 
                             <option>-select-</option>
   
@@ -81,7 +86,7 @@
 
                             <div class="input-group mb-3">
 
-                              <input type="text" value="" class="form-control exchange_rate" readonly="" required="" name="exchange_rate" style="border: 1px solid #E9F6EC;">
+                              <input type="text" value="" class="form-control exchange_rate" readonly="" required="" name="exchange_rate" style="border: 2px solid #E9F6EC;">
 
                               <span class="input-group-text" id="basic-addon1" style="margin-left: -3px; background: #E9F6EC;">FCFA/USD</span>
 
@@ -102,7 +107,7 @@
                           <label for="deposit_method" class="">{{__("Amount (USD)")}}</label>
 
                           <div class="input-group mb-3">
-                            <input {{$disable}} type="text" value="" class="form-control amount" required="" name="amount" style="border: 1px solid #E9F6EC;">
+                            <input {{$disable}} type="text" value="" class="form-control amount" required="" name="amount" style="border: 2px solid #E9F6EC;">
                           <span class="input-group-text" id="basic-addon1" style="margin-left: -3px; background: #E9F6EC; padding: 0 20px">$</span>
                           </div>
 
@@ -116,7 +121,7 @@
 
                           <label for="deposit_method" class="">{{__("Amount of currency to buy")}}</label>
 
-                          <input type="text" value="" class="form-control crypto_amount" readonly="" required="" name="crypto_amount">
+                          <input type="text" value="" class="form-control crypto_amount" readonly="" required="" name="crypto_amount" style="border: 2px solid #E9F6EC;">
 
                         </div>
 
@@ -134,11 +139,11 @@
                             
                             <div class="input-group" style="margin-bottom: 0 !important;" >
 
-                              <div class="input-group" id="buy_custom_paiemen" style="display: flex; align-items:center;margin-bottom: 0 !important;">
-                                <select {{$disable}} class=" input-group-text form-control" name="wallet_address"  style="z-index: 999; position: relative; background: transparent; margin-right: 15px; border: 1px solid #E9F6EC;">
+                              <div class="input-group" style="display: flex; align-items:center;margin-bottom: 0 !important;">
+                                <select {{$disable}} style="display:none; text-align:left" class=" input-group-text form-control" name="wallet_address" id="buy_custom_paiemen" style="z-index: 1; position: relative; background: transparent; margin-right: 15px; border: 1px solid #E9F6EC;">
 
                                 </select>
-                                <span id="add_method2" class="input-group-text"  style="margin-left: -3px; background: #E9F6EC; padding: 0 20px; position: absolute; right:0; font-weight: bold; display: none;" data-toggle="modal" data-target="#exampleModalCenter">+</span>
+                                <span id="buy_custom_paiemen2" class="input-group-text"  style="margin-left: -3px; background: #E9F6EC; padding: 0 20px; position: absolute; right:0; font-weight: bold; display: none;" data-toggle="modal" data-target="#exampleModalCenter">+</span>
                               </div>
                               {{-- <span style="display:none;" class="copieur input-group-text" id="add_method" data-toggle="modal" data-target="#exampleModalCenter" title="Ajouter une adresse">
 
@@ -150,10 +155,10 @@
 
                             </div>
                         
-                            <div class="input-group">
+                            
                               <p id="custom_wallet_adresse" data-toggle="modal" data-target="#exampleModalCenter" value="" class="form-control" style="color:gray; font-size:16px;">Ajouter une adresse</p>
-                            <span class="input-group-text" id="custom_wallet_adresse1" style="margin-left: -3px; background: #E9F6EC; padding: 0 20px;">+</span>
-                            </div>
+                            {{-- <span class="input-group-text" id="custom_wallet_adresse1" style="margin-left: -3px; background: #E9F6EC; padding: 0 20px;">+</span> --}}
+                            
 
                             <input id="buy_pay_address" type="hidden" name="wallet_address">
 
@@ -184,7 +189,7 @@
                                 <label for="type" class="form-label">Type</label>
 
                                 <div class="input-group">
-                                  <select {{$disable}} name="type" class="form-control" id="type" style="z-index: 999; position: relative; background: transparent; margin-right: 15px; border: 1px solid #E9F6EC;">
+                                  <select {{$disable}} name="type" class="form-control" id="type" style="z-index: 1; position: relative; background: transparent; margin-right: 15px; border: 1px solid #E9F6EC;">
                                     
                                     <option value="cryptomonaie">Cryptomonaie</option>
 
@@ -197,7 +202,7 @@
                                 <div class="mb-3">
                                   <label  for="nom" class="form-label">Nom ou operateur de la methode</label>
                                   <div class="input-group">
-                                    <select name="nom" class="form-control" id="nom" style="z-index: 999; position: relative; background: transparent; margin-right: 15px; border: 1px solid #E9F6EC;">
+                                    <select name="nom" class="form-control" id="nom" style="z-index: 1; position: relative; background: transparent; margin-right: 15px; border: 1px solid #E9F6EC;">
                                       
                                       <option value="cryptomonaie">Cryptomonaie</option>
   
@@ -259,7 +264,7 @@
                         <label class="" for="pay_method">{{__("Pay method")}}</label>
 
                         <div class="input-group">
-                          <select {{$disable}} id="pay_method" class="form-control select_coin" name="pay_method" required="" style="z-index: 999; position: relative; background: transparent; margin-right: 15px; border: 1px solid #E9F6EC;">
+                          <select {{$disable}} id="pay_method" class="form-control select_coin" name="pay_method" required="" style="z-index: 1; position: relative; background: transparent; margin-right: 15px; border: 1px solid #E9F6EC;">
 
                             
 
@@ -296,11 +301,11 @@
                   @if($disable=="disabled")
 
 
-                    <p {{$disable}} data-toggle="modal" data-target="#offlinemodal" type="submit" class="btn btn-default submit_form" style="border: 1px solid #E9F6EC">{{__('Submit')}}</p>
+                    <p {{$disable}} data-toggle="modal" data-target="#offlinemodal" type="submit" class="btn btn-default submit_form" style="border: 2px solid #E9F6EC">{{__('Submit')}}</p>
 
                   @else
 
-                    <button  type="submit" class="btn btn-default submit_form" style="border: 1px solid #E9F6EC">{{__('Submit')}}</button>
+                    <button  type="submit" class="btn btn-default submit_form" style="border: 2px solid #E9F6EC">{{__('Submit')}}</button>
 
                   @endif
                   </div>

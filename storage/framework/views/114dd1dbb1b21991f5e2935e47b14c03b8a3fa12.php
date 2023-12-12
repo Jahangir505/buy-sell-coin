@@ -24,9 +24,9 @@
   <div id="app">
     <div class="main-wrapper main-wrapper-1">
       <div class="navbar-bg"></div>
-      <nav class="navbar navbar-expand-lg main-navbar sticky">
+      <nav class="navbar navbar-expand-lg main-navbar sticky fullNav">
         <div class="form-inline mr-auto">
-          <ul class="navbar-nav mr-3">
+          <ul class="navbar-nav mr-3 " style="display: flex; align-items: center; justify-content: center;">
             <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg
 									collapse-btn"> <i data-feather="menu"></i></a></li>
             <li>
@@ -41,7 +41,7 @@
             </li>
           </ul>
         </div>
-        <ul class="navbar-nav navbar-right">
+        <ul class="navbar-nav navbar-right" style="display: flex; align-items: center; justify-content: center;">
           <li><a href="#" class="nav-link nav-link-lg fullscreen-btn">
               <i data-feather="maximize"></i>
             </a></li>
@@ -150,7 +150,9 @@
           </li>
           <li class="dropdown"><a href="#" data-toggle="dropdown"
               class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image" src="/assets/dash/assets/img/user.png"
-                class="user-img-radious-style"> <span class="d-sm-none d-lg-inline-block"></span></a>
+                class="user-img-radious-style"> 
+                
+              </a>
             <div class="dropdown-menu dropdown-menu-right pullDown">
               <div class="dropdown-title">Hello Dear</div>
               <a href="/profile/identity" class="dropdown-item has-icon"> <i class="far
@@ -222,7 +224,7 @@
 
         </ul>
 
-    </div>
+      </div>
 
 
     <div class="home_mobile_divider"></div>
@@ -239,17 +241,17 @@
           </div>
           <ul class="sidebar-menu">
             
-            <li class="dropdown active">
+            <li class="dropdown <?php echo e(request()->routeIs('home') ? 'active' : ''); ?>">
               <a href="/home">
                 <i data-feather="airplay"></i><span><?php echo e(__("Dashboard")); ?></span></a>
               
             </li>
             
-            <li class="dropdown">
+            <li class="dropdown <?php echo e(request()->routeIs('affiliation') ? 'active' : ''); ?>">
               <a href="/affiliation"><i data-feather="share-2"></i><span><?php echo e(__("Affiliation")); ?></span></a>
               
             </li>
-            <li class="dropdown">
+            <li class="dropdown <?php echo e(request()->routeIs('withdrawal/request') ? 'active' : ''); ?>">
               <a href="https://probuysellcoin.com/withdrawal/request"><i data-feather="arrow-left-circle"></i><span><?php echo e(__("Withdraw Earning")); ?></span></a>
               
             </li>
@@ -258,7 +260,7 @@
               <a href="/buyCoin"><i data-feather="shopping-cart"></i><span><?php echo e(__("Buy Coins")); ?></span></a>
               
             </li>
-            <li class="dropdown">
+            <li class="dropdown <?php echo e(request()->routeIs('sellCoin') ? 'active' : ''); ?>">
               <a href="<?php echo e(route('sellCoin')); ?>"><i data-feather="dollar-sign"></i><span><?php echo e(__("Sell Coins")); ?></span></a>
               
             </li>
@@ -270,19 +272,20 @@
             
             
            
-            <li class="dropdown">
+            <li class="dropdown <?php echo e(request()->routeIs('info') ? 'active' : ''); ?>">
               <a href="/profile/info"><i
                   data-feather="settings"></i><span><?php echo e(__("Settings")); ?></span></a>
              
             </li>
+            <?php echo e(request()->routeIs()); ?>
 
-            <li class="dropdown">
+            <li class="dropdown <?php echo e(request()->routeIs('customer_paiement') ? 'active' : ''); ?>">
               <a href="/customer_paiement"><i
                   data-feather="database"></i><span><?php echo e(__("Paiement method")); ?></span></a>
              
             </li>
 
-            <li class="dropdown">
+            <li class="dropdown <?php echo e(request()->routeIs('doc') ? 'active' : ''); ?>">
               <a href="/doc"><i
                   data-feather="book"></i><span><?php echo e(__("Documentation")); ?></span></a>
              

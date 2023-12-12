@@ -94,6 +94,8 @@ class CoinsController extends Controller
 
         $sended_data=homeController::index_getter();
 
+        // dd($sended_data);
+
         $sended_data["data"]=$coins;
 
         $sended_data["deposit"]=DepositMethod::all();

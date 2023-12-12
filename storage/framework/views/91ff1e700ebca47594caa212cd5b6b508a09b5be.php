@@ -89,7 +89,7 @@
 
 <!-- Overlay For Sidebars -->
 <div class="overlay"></div>
-<?php echo $__env->make('layouts.topnavbar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+      <?php echo $__env->make('layouts.topnavbar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
 
         <?php if(auth()->guard()->check()): ?>
@@ -144,6 +144,7 @@
   <script src="/assets/dash/assets/js/scripts.js"></script>
   <!-- Custom JS File -->
   <script src="/assets/dash/assets/js/custom.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
 
 	
 	<?php echo $__env->yieldContent('js'); ?>

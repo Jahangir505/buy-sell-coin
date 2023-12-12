@@ -18,14 +18,14 @@ $(function () {
   let sidebar_nicescroll_opts = {
       cursoropacitymin: 0,
       cursoropacitymax: 0.8,
-      zindex: 892,
+      zindex: 892
     },
     now_layout_class = null;
 
   var sidebar_sticky = function () {
     if ($("body").hasClass("layout-2")) {
       $("body.layout-2 #sidebar-wrapper").stick_in_parent({
-        parent: $("body"),
+        parent: $("body")
       });
       $("body.layout-2 #sidebar-wrapper").stick_in_parent({ recalc_every: 1 });
     }
@@ -68,13 +68,13 @@ $(function () {
   if ($("#scroll-new").length) {
     $("#scroll-new")
       .css({
-        height: 200,
+        height: 200
       })
       .niceScroll();
   }
 
   $(".main-content").css({
-    minHeight: $(window).outerHeight() - 95,
+    minHeight: $(window).outerHeight() - 95
   });
 
   $(".nav-collapse-toggle").click(function () {
@@ -92,7 +92,7 @@ $(function () {
     if (!mini) {
       body.removeClass("sidebar-mini");
       $(".main-sidebar").css({
-        overflow: "hidden",
+        overflow: "hidden"
       });
       setTimeout(function () {
         $(".main-sidebar").niceScroll(sidebar_nicescroll_opts);
@@ -121,7 +121,7 @@ $(function () {
           me.find("> a").attr("data-toggle", "tooltip");
           me.find("> a").attr("data-original-title", me.find("> a").text());
           $("[data-toggle='tooltip']").tooltip({
-            placement: "right",
+            placement: "right"
           });
         }
       });
@@ -237,7 +237,7 @@ $(function () {
         main_sidebar.find(".sidebar-brand").remove();
         main_sidebar.find(".sidebar-menu").before(
           $("<div>", {
-            class: "sidebar-brand",
+            class: "sidebar-brand"
           }).append(
             ' <a href="index.html"> <img alt="image" src="templates/logicswave/jiva/source/light/assets/img/logo.png" class="header-logo" /> <span class="logo-name">Jiva</span> </a>'
           )
@@ -305,7 +305,7 @@ $(function () {
 
   // popover
   $('[data-toggle="popover"]').popover({
-    container: "body",
+    container: "body"
   });
 
   // Select2
@@ -317,7 +317,7 @@ $(function () {
   if (jQuery().selectric) {
     $(".selectric").selectric({
       disableOnMobile: false,
-      nativeOnMobile: false,
+      nativeOnMobile: false
     });
   }
 
@@ -328,7 +328,7 @@ $(function () {
       $(".dropdown-list-icons").niceScroll({
         cursoropacitymin: 0.3,
         cursoropacitymax: 0.8,
-        cursorwidth: 7,
+        cursorwidth: 7
       });
     });
 
@@ -339,14 +339,14 @@ $(function () {
       $(".dropdown-list-message").niceScroll({
         cursoropacitymin: 0.3,
         cursoropacitymax: 0.8,
-        cursorwidth: 7,
+        cursorwidth: 7
       });
     });
 
   if (jQuery().summernote) {
     $(".summernote").summernote({
       dialogsInBody: true,
-      minHeight: 250,
+      minHeight: 250
     });
     $(".summernote-simple").summernote({
       dialogsInBody: true,
@@ -354,8 +354,8 @@ $(function () {
       toolbar: [
         ["style", ["bold", "italic", "underline", "clear"]],
         ["font", ["strikethrough"]],
-        ["para", ["paragraph"]],
-      ],
+        ["para", ["paragraph"]]
+      ]
     });
   }
 
@@ -393,7 +393,7 @@ $(function () {
   $("[data-background]").each(function () {
     var me = $(this);
     me.css({
-      backgroundImage: "url(" + me.data("background") + ")",
+      backgroundImage: "url(" + me.data("background") + ")"
     });
   });
 
@@ -446,7 +446,7 @@ $(function () {
     $(this).css({
       overflow: "hidden",
       position: "relative",
-      height: $(this).data("crop-image"),
+      height: $(this).data("crop-image")
     });
   });
 
@@ -468,14 +468,14 @@ $(function () {
   // Width attribute
   $("[data-width]").each(function () {
     $(this).css({
-      width: $(this).data("width"),
+      width: $(this).data("width")
     });
   });
 
   // Height attribute
   $("[data-height]").each(function () {
     $(this).css({
-      height: $(this).data("height"),
+      height: $(this).data("height")
     });
   });
 
@@ -489,7 +489,7 @@ $(function () {
     $(".sortable-card").sortable({
       handle: ".card-header",
       opacity: 0.8,
-      tolerance: "pointer",
+      tolerance: "pointer"
     });
   }
 
@@ -498,7 +498,7 @@ $(function () {
     if ($(".datepicker").length) {
       $(".datepicker").daterangepicker({
         locale: { format: "YYYY-MM-DD" },
-        singleDatePicker: true,
+        singleDatePicker: true
       });
     }
     if ($(".datetimepicker").length) {
@@ -506,14 +506,14 @@ $(function () {
         locale: { format: "YYYY-MM-DD hh:mm" },
         singleDatePicker: true,
         timePicker: true,
-        timePicker24Hour: true,
+        timePicker24Hour: true
       });
     }
     if ($(".daterange").length) {
       $(".daterange").daterangepicker({
         locale: { format: "YYYY-MM-DD" },
         drops: "down",
-        opens: "right",
+        opens: "right"
       });
     }
   }
@@ -523,8 +523,8 @@ $(function () {
     $(".timepicker").timepicker({
       icons: {
         up: "fas fa-chevron-up",
-        down: "fas fa-chevron-down",
-      },
+        down: "fas fa-chevron-down"
+      }
     });
   }
 
