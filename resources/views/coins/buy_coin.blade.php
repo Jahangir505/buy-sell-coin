@@ -12,7 +12,12 @@
 
     input:read-only {
     background-color: #e9f6ec38; /* Change to your desired readonly background color */
+    
   }
+  .btn:hover{
+      background: #E9F6EC !important;
+      box-shadow: 0 3px 8px 0 #E9F6EC !important;
+    }
   </style>
 
 
@@ -54,7 +59,7 @@
 
                         <div class="input-group mb-3">
 
-                          <select {{$disable}} class="form-control select_coin" name="coin_id" required="" style="z-index: 999; position: relative; background: transparent; margin-right: 15px; border: 2px solid #E9F6EC;">
+                          <select {{$disable}} class="form-control select_coin" name="coin_id" required="" style="z-index: 1; position: relative; background: transparent; margin-right: 15px; border: 2px solid #E9F6EC;">
 
                             <option>-select-</option>
   
@@ -116,6 +121,7 @@
 
                           <label for="deposit_method" class="">{{__("Amount of currency to buy")}}</label>
 
+
                           <div class="input-group">
                             <input type="text" value="" class="form-control crypto_amount" readonly="" required="" name="crypto_amount" style="border: 2px solid #E9F6EC;">
                             <span class="input-group-text" id="basic-addon1" style="margin-left: -3px; background: #E9F6EC; padding: 0 10px;">FCFA</span>
@@ -138,7 +144,7 @@
                             <div class="input-group" style="margin-bottom: 0 !important;" >
 
                               <div class="input-group" style="display: flex; align-items:center;margin-bottom: 0 !important;">
-                                <select {{$disable}} style="display:none; text-align:left" class=" input-group-text form-control" name="wallet_address" id="buy_custom_paiemen" style="z-index: 999; position: relative; background: transparent; margin-right: 15px; border: 1px solid #E9F6EC;">
+                                <select {{$disable}} style="display:none; text-align:left" class=" input-group-text form-control" name="wallet_address" id="buy_custom_paiemen" style="z-index: 1; position: relative; background: transparent; margin-right: 15px; border: 1px solid #E9F6EC;">
 
                                 </select>
                                 <span id="buy_custom_paiemen2" class="input-group-text"  style="margin-left: -3px; background: #E9F6EC; padding: 0 20px; position: absolute; right:0; font-weight: bold; display: none;" data-toggle="modal" data-target="#exampleModalCenter">+</span>
@@ -187,7 +193,7 @@
                                 <label for="type" class="form-label">Type</label>
 
                                 <div class="input-group">
-                                  <select {{$disable}} name="type" class="form-control" id="type" style="z-index: 999; position: relative; background: transparent; margin-right: 15px; border: 1px solid #E9F6EC;">
+                                  <select {{$disable}} name="type" class="form-control" id="type" style="z-index: 1; position: relative; background: transparent; margin-right: 15px; border: 1px solid #E9F6EC;">
                                     
                                     <option value="cryptomonaie">Cryptomonaie</option>
 
@@ -200,7 +206,7 @@
                                 <div class="mb-3">
                                   <label  for="nom" class="form-label">Nom ou operateur de la methode</label>
                                   <div class="input-group">
-                                    <select name="nom" class="form-control" id="nom" style="z-index: 999; position: relative; background: transparent; margin-right: 15px; border: 1px solid #E9F6EC;">
+                                    <select name="nom" class="form-control" id="nom" style="z-index: 1; position: relative; background: transparent; margin-right: 15px; border: 1px solid #E9F6EC;">
                                       
                                       <option value="cryptomonaie">Cryptomonaie</option>
   
@@ -262,7 +268,7 @@
                         <label class="" for="pay_method">{{__("Pay method")}}</label>
 
                         <div class="input-group">
-                          <select {{$disable}} id="pay_method" class="form-control select_coin" name="pay_method" required="" style="z-index: 999; position: relative; background: transparent; margin-right: 15px; border: 1px solid #E9F6EC;">
+                          <select {{$disable}} id="pay_method" class="form-control select_coin" name="pay_method" required="" style="z-index: 1; position: relative; background: transparent; margin-right: 15px; border: 1px solid #E9F6EC;">
 
                             
 
@@ -299,9 +305,10 @@
                   @if($disable=="disabled")
 
 
-                    <p {{$disable}} data-toggle="modal" data-target="#offlinemodal" type="submit" class="btn btn-default submit_form" style="border: 1px solid #E9F6EC">{{__('Submit')}}</p>
+                    <p {{$disable}} data-toggle="modal" data-target="#offlinemodal" type="submit" class="btn btn-default submit_form" style="border: 2px solid #E9F6EC">{{__('Submit')}}</p>
 
                   @else
+
 
                   <button type="submit" class="text-gray-900 font-bold bg-gradient-to-r from-green-200 to-lime-200 hover:bg-gradient-to-l hover:from-green-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-green-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">{{__('Submit')}}</button>
 

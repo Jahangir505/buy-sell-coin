@@ -241,17 +241,17 @@
           </div>
           <ul class="sidebar-menu">
             
-            <li class="dropdown active">
+            <li class="dropdown <?php echo e(request()->routeIs('home') ? 'active' : ''); ?>">
               <a href="/home">
                 <i data-feather="airplay"></i><span><?php echo e(__("Dashboard")); ?></span></a>
               
             </li>
             
-            <li class="dropdown">
+            <li class="dropdown <?php echo e(request()->routeIs('affiliation') ? 'active' : ''); ?>">
               <a href="/affiliation"><i data-feather="share-2"></i><span><?php echo e(__("Affiliation")); ?></span></a>
               
             </li>
-            <li class="dropdown">
+            <li class="dropdown <?php echo e(request()->routeIs('withdrawal/request') ? 'active' : ''); ?>">
               <a href="https://probuysellcoin.com/withdrawal/request"><i data-feather="arrow-left-circle"></i><span><?php echo e(__("Withdraw Earning")); ?></span></a>
               
             </li>
@@ -260,7 +260,7 @@
               <a href="/buyCoin"><i data-feather="shopping-cart"></i><span><?php echo e(__("Buy Coins")); ?></span></a>
               
             </li>
-            <li class="dropdown">
+            <li class="dropdown <?php echo e(request()->routeIs('sellCoin') ? 'active' : ''); ?>">
               <a href="<?php echo e(route('sellCoin')); ?>"><i data-feather="dollar-sign"></i><span><?php echo e(__("Sell Coins")); ?></span></a>
               
             </li>
@@ -272,19 +272,20 @@
             
             
            
-            <li class="dropdown">
+            <li class="dropdown <?php echo e(request()->routeIs('info') ? 'active' : ''); ?>">
               <a href="/profile/info"><i
                   data-feather="settings"></i><span><?php echo e(__("Settings")); ?></span></a>
              
             </li>
+            <?php echo e(request()->routeIs()); ?>
 
-            <li class="dropdown">
+            <li class="dropdown <?php echo e(request()->routeIs('customer_paiement') ? 'active' : ''); ?>">
               <a href="/customer_paiement"><i
                   data-feather="database"></i><span><?php echo e(__("Paiement method")); ?></span></a>
              
             </li>
 
-            <li class="dropdown">
+            <li class="dropdown <?php echo e(request()->routeIs('doc') ? 'active' : ''); ?>">
               <a href="/doc"><i
                   data-feather="book"></i><span><?php echo e(__("Documentation")); ?></span></a>
              

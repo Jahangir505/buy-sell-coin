@@ -46,7 +46,7 @@
                         <label class="" for="deposit_method"><?php echo e(__("Select Currency")); ?></label>
 
                         <div class="input-group mb-3">
-                          <select <?php echo e($disable); ?> class="form-control select_coin" name="coin_id" required="" style="z-index: 999; position: relative; background: transparent; margin-right: 15px; border: 2px solid #E9F6EC;">
+                          <select <?php echo e($disable); ?> class="form-control select_coin" name="coin_id" required="" style="z-index: 1; position: relative; background: transparent; margin-right: 15px; border: 2px solid #E9F6EC;">
 
                             <option>-select-</option>
   
@@ -145,18 +145,18 @@
                         <label class="" for="pay_method"><?php echo e(__("Pay method")); ?></label>
 
                         <div class="input-group">
-                          <select <?php echo e($disable); ?> id="pay_method" class="form-control select_coin" name="pay_method" required="" style="z-index: 999; position: relative; background: transparent; margin-right: 15px; border: 2px solid #E9F6EC;">
+                            <select <?php echo e($disable); ?> id="pay_method" class="form-control select_coin" name="pay_method" required="" style="z-index: 999; position: relative; background: transparent; margin-right: 15px; border: 2px solid #E9F6EC;">
 
-                            
-
-                            <?php $__currentLoopData = $deposit; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $method): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            
-                              <option value="<?php echo e($method->name); ?>"><?php echo e($method->name); ?></option>
-
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                               
-                        </select>
-                        <span class="input-group-text" id="basic-addon1" style="margin-left: -3px; background: #E9F6EC; padding: 0 25px; position: absolute; right:0;"></span>
+
+                              <?php $__currentLoopData = $deposit; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $method): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                              
+                                <option value="<?php echo e($method->name); ?>"><?php echo e($method->name); ?></option>
+
+                              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                
+                          </select>
+                          <span class="input-group-text" id="basic-addon1" style="margin-left: -3px; background: #E9F6EC; padding: 0 25px; position: absolute; right:0;"></span>
                         </div>
                         
                       </div>

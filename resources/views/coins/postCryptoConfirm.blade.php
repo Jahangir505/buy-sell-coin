@@ -46,6 +46,7 @@
         </style>
 
     <script src="/assets/front/js/vendor/jquery-3.5.1-min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 
     </head>
 
@@ -279,14 +280,18 @@
 
                                     </div>
 
-                                    <br><div class="row btn-zn">
+                                    <br><div class="row btn-zn" style="display: flex; align-items: center;">
 
                                         <div class="col">
-                                            <a href="{{route('home')}}" class="btn btn-common" style="background-color:gray">{{ __("Cancel") }}</a>
+                                            
+                                           
+                                                <a class="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-3 text-center me-2 mb-2 uppercase mt-2" href="{{route('home')}}"  >{{ __("Cancel") }}</a>
+                                            
                                         </div>
 
                                         <div class="col">
-                                            <button class="btn btn-common submit_form" id="submit" type="submit">{{ __("Confirm") }}</button>
+                                                <button type="submit" class="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-3 text-center me-2 mb-2 uppercase pointer">{{ __("Confirm") }}</button>
+                                            
                                         </div>
 
                                     </div>

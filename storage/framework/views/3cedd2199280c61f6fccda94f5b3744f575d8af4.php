@@ -4,21 +4,28 @@
 
 <div class="row buy_sell_page">
 
+  <style>
+    .btn:hover{
+      background: #E9F6EC !important;
+      box-shadow: 0 3px 8px 0 #E9F6EC !important;
+    }
+  </style>
+
     <?php echo $__env->make('partials.sidebar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
     <div class="col-md-9 " style="padding-right: 40px" id="#sendMoney">
 
       <?php echo $__env->make('flash', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
-      <div class="card" style="background: #1f2937;">
+      <div class="card">
 
         <div class="header">
 
-            <h2 style="color: #ffffff"><strong><?php echo e(__("Sell Coins")); ?></strong></h2>
+            <h2><strong><?php echo e(__("Sell Coins")); ?></strong></h2>
 
         </div>
 
-        <p class="a_overview text-white">
+        <p class="a_overview ">
           <?php echo e(__("Sell your virtual currency safely with us at the best price, and receive the money directly via the payment method that suits you.")); ?>
 
         </p>
@@ -36,20 +43,23 @@
 
                       <div class="form-group">
 
-                        <label class="text-white" for="deposit_method"><?php echo e(__("Select Currency")); ?></label>
+                        <label class="" for="deposit_method"><?php echo e(__("Select Currency")); ?></label>
 
-                        <select <?php echo e($disable); ?> class="form-control select_coin" name="coin_id" required="">
+                        <div class="input-group mb-3">
+                          <select <?php echo e($disable); ?> class="form-control select_coin" name="coin_id" required="" style="z-index: 999; position: relative; background: transparent; margin-right: 15px; border: 2px solid #E9F6EC;">
 
-	                        <option>-select-</option>
-
-	                                <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-
-                                    <option data-wallet_address="<?php echo e($value->wallet_address); ?>" data-price="<?php echo e($value->price); ?>" value="<?php echo e($value->id); ?>"><?php echo e($value->coin_name); ?></option>
-
-	                        		<?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-							
-
-	                      </select>
+                            <option>-select-</option>
+  
+                                    <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+  
+                                      <option data-wallet_address="<?php echo e($value->wallet_address); ?>" data-price="<?php echo e($value->price); ?>" value="<?php echo e($value->id); ?>"><?php echo e($value->coin_name); ?></option>
+  
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                
+  
+                          </select>
+                          <span class="input-group-text" id="basic-addon1" style="margin-left: -3px; background: #E9F6EC; padding: 0 25px; position: absolute; right:0;"></span>
+                        </div>
 
                       </div>
 
@@ -59,13 +69,13 @@
 
                         <div class="form-group">
 
-                          <label class="text-white" for="deposit_method"><?php echo e(__("Exchange Rate")); ?></label>
+                          <label class="" for="deposit_method"><?php echo e(__("Exchange Rate")); ?></label>
 
                             <div class="input-group mb-3">
 
-                              <input <?php echo e($disable); ?> type="text" value="" class="form-control exchange_rate" readonly="" required="" name="exchange_rate">
+                              <input <?php echo e($disable); ?> type="text" value="" class="form-control exchange_rate" readonly="" required="" name="exchange_rate" style="border: 2px solid #E9F6EC;">
 
-                              <span class="input-group-text" id="basic-addon1" style="margin-left: -3px;">FCFA/USD</span>
+                              <span class="input-group-text" id="basic-addon1" style="margin-left: -3px; background: #E9F6EC;">FCFA/USD</span>
 
                           </div>
 
@@ -81,10 +91,12 @@
 
                         <div class="form-group">
 
-                          <label class="text-white" for="deposit_method"><?php echo e(__("Amount (USD)")); ?></label>
+                          <label class="" for="deposit_method"><?php echo e(__("Amount (USD)")); ?></label>
 
-                          <input <?php echo e($disable); ?> type="text" value="" class="form-control amount" required="" name="amount">
-
+                          <div class="input-group mb-3">
+                            <input <?php echo e($disable); ?> type="text" value="" class="form-control amount" required="" name="amount" style="border: 2px solid #E9F6EC;">
+                          <span class="input-group-text" id="basic-addon1" style="margin-left: -3px; background: #E9F6EC; padding: 0 22px">$</span>
+                          </div>
                         </div>
 
                     </div>
@@ -93,10 +105,10 @@
 
                         <div class="form-group">
 
-                          <label class="text-white" for="deposit_method"><?php echo e(__("Amount of currency to sell")); ?></label>
+                          <label class="" for="deposit_method"><?php echo e(__("Amount of currency to sell")); ?></label>
 
-                          <input <?php echo e($disable); ?> type="text" value="" class="form-control crypto_amount" readonly="" required="" name="crypto_amount">
-
+                          <input <?php echo e($disable); ?> type="text" value="" class="form-control crypto_amount" readonly="" required="" name="crypto_amount" style="border: 2px solid #E9F6EC;">
+                            
                         </div>
 
                     </div>
@@ -109,10 +121,17 @@
 
                         <div class="form-group">
 
-                          <label class="text-white" for="deposit_method"><span class="crypto_name"></span> <?php echo e(__("wallet address")); ?></label>
+                          <label class="" for="deposit_method"><span class="crypto_name"></span> <?php echo e(__("wallet address")); ?></label>
 
-                          <input <?php echo e($disable); ?> type="text" value="" readonly="" class="form-control wallet_address" required="" name="wallet_address">
-
+                          <div class="input-group">
+                            <input <?php echo e($disable); ?> type="text" value="" readonly="" class="form-control wallet_address" required="" name="wallet_address" >
+                            <span style="margin-left: -3px; background: #E9F6EC; padding: 0 20px; display: flex; align-items:center;">
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-4 h-4">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a2.25 2.25 0 00-2.25-2.25H15a3 3 0 11-6 0H5.25A2.25 2.25 0 003 12m18 0v6a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 18v-6m18 0V9M3 12V9m18 0a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 9m18 0V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v3" />
+                              </svg>
+                              
+                            </span>
+                          </div>
                         </div>
 
                     </div>
@@ -121,7 +140,7 @@
 
                       <div class="form-group">
 
-                        <label class="text-white" for="pay_method"><?php echo e(__("Pay method")); ?></label>
+                        <label class="" for="pay_method"><?php echo e(__("Pay method")); ?></label>
 
                         <select <?php echo e($disable); ?> id="pay_method" class="form-control select_coin" name="pay_method" required="">
 
@@ -163,7 +182,7 @@
 
                   <?php else: ?>
 
-                  <button  type="submit" class="btn btn-primary submit_form"><?php echo e(__('Submit')); ?></button>
+                  <button  type="submit" class="btn btn-default submit_form" style="border: 2px solid #E9F6EC"><?php echo e(__('Submit')); ?></button>
 
                   <?php endif; ?>
 

@@ -46,6 +46,7 @@
         </style>
 
     <script src="/assets/front/js/vendor/jquery-3.5.1-min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 
     </head>
 
@@ -60,7 +61,7 @@
 
     <form  class="crypto-form confirm_form" id="<?php echo $want."_crypto"?>" <?php if($want=="buy"): ?> action="<?php echo e(route('postBuyCrypto')); ?>" <?php endif; ?> <?php if($want=="sell"): ?> action="<?php echo e(route('postSellCrypto')); ?>" <?php endif; ?> method="post" enctype="multipart/form-data">
             
-        <div class="row" id="confirmForm" style="background: #1f2937; margin: 10px;; padding: 10px;">
+        <div class="row card p-3" id="confirmForm">
 
             
                 <div id="payInfo" class="col">
@@ -70,12 +71,12 @@
 
                     <p><div class="body">
 
-                        <p class="pay-info text-white"><?php echo e(__("Payment method")); ?>: <span class="pay-value" id="pay-method"><?php echo e($data->pay_method); ?></span></p>
-                        <p class="pay-info text-white"><?php echo e(__("Amount due")); ?>: <span class="pay-value" id="pay-amount"><?php echo e($data->crypto_amount); ?> FCFA</span></p>
+                        <p class="pay-info "><?php echo e(__("Payment method")); ?>: <span class="pay-value" id="pay-method"><?php echo e($data->pay_method); ?></span></p>
+                        <p class="pay-info "><?php echo e(__("Amount due")); ?>: <span class="pay-value" id="pay-amount"><?php echo e($data->crypto_amount); ?> FCFA</span></p>
                         
                         <?php if($want=="buy"): ?>
 
-                            <div class="pay-info text-white"><?php echo e(__("Procedure")); ?>: 
+                            <div class="pay-info "><?php echo e(__("Procedure")); ?>: 
 
                                 <?php $how_to="";?>
 
@@ -266,8 +267,8 @@
 
                                     <div class="clearfix"></div>
 
-                                    <br><br><div>
-                                        <a href="https://wa.me/<?php echo e(DB::table('phone_support')->find(1)->phone); ?>" class="row help " target="_blank">
+                                    <br><div>
+                                        <a href="https://wa.me/<?php echo e(DB::table('phone_support')->find(1)->phone); ?>" class="row help " target="_blank" style="background: #E9F6EC !important">
 
                                             <div class="col img">
                                                 <img src="assets/front/img/whatsapp.png" alt="">
@@ -280,14 +281,18 @@
 
                                     </div>
 
-                                    <br><br><div class="row btn-zn">
+                                    <br><div class="row btn-zn" style="display: flex; align-items: center;">
 
                                         <div class="col">
-                                            <a href="<?php echo e(route('home')); ?>" class="btn btn-common" style="background-color:gray"><?php echo e(__("Cancel")); ?></a>
+                                            
+                                           
+                                                <a class="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-3 text-center me-2 mb-2 uppercase mt-2" href="<?php echo e(route('home')); ?>"  ><?php echo e(__("Cancel")); ?></a>
+                                            
                                         </div>
 
                                         <div class="col">
-                                            <button class="btn btn-common submit_form" id="submit" type="submit"><?php echo e(__("Confirm")); ?></button>
+                                                <button type="submit" class="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-3 text-center me-2 mb-2 uppercase pointer"><?php echo e(__("Confirm")); ?></button>
+                                            
                                         </div>
 
                                     </div>
@@ -298,7 +303,7 @@
                     </div>
    
                 </div>
-                <div class="col" id="resume" style="background: #aeaeae38; padding: 20px;">
+                <div class="col" id="resume">
 
                         
 
@@ -306,7 +311,7 @@
 
 
 
-                    <h6 style="color: #ffffff"> <?php if($want=="sell"): ?><?php echo e(__("Sale transaction summary")); ?> <?php else: ?> <?php echo e(__("Purchase Transaction Summary")); ?> <?php endif; ?></h6>
+                    <h6> <?php if($want=="sell"): ?><?php echo e(__("Sale transaction summary")); ?> <?php else: ?> <?php echo e(__("Purchase Transaction Summary")); ?> <?php endif; ?></h6>
 
                     <p><div class="body">
 
@@ -325,29 +330,32 @@
 
                                                 <label for="deposit_method"><?php echo e(__("Choose the currency to $want")); ?></label>
     
-                                                <select class="form-control select_coin" name="coin_id" required="">
+                                                <div class="input-group">
+                                                    <select class="form-control select_coin" name="coin_id" required="" style="z-index: 999; position: relative; background: transparent; margin-right: 15px; border: 2px solid #E9F6EC;">
     
                                                     
     
-                                                    <?php $__currentLoopData = $coin_data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-    
-                                                        <?php if($value->id==$data->coin_id): ?>
-    
-                                                         <?php   $selected_coin_name=$value->coin_name; ?>
-                                                        
-                                                            <option data-qr="<?php echo e($value->qr_code); ?>" data-wallet_address="<?php echo e($value->wallet_address); ?>" data-price="<?php echo e($value->price); ?>" data-price = "" value="<?php echo e($value->id); ?>"><?php echo e($value->coin_name); ?></option>
-    
-                                                        <?php endif; ?>
-    
-                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-    
-                                                    <?php $__currentLoopData = $coin_data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-    
-                                                        <option data-qr="<?php echo e($value->qr_code); ?>" data-wallet_address="<?php echo e($value->wallet_address); ?>" data-price="<?php echo e($value->price); ?>" value="<?php echo e($value->id); ?>"><?php echo e($value->coin_name); ?></option>
-    
-                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-    
-                                                </select>
+                                                        <?php $__currentLoopData = $coin_data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        
+                                                            <?php if($value->id==$data->coin_id): ?>
+        
+                                                             <?php   $selected_coin_name=$value->coin_name; ?>
+                                                            
+                                                                <option data-qr="<?php echo e($value->qr_code); ?>" data-wallet_address="<?php echo e($value->wallet_address); ?>" data-price="<?php echo e($value->price); ?>" data-price = "" value="<?php echo e($value->id); ?>"><?php echo e($value->coin_name); ?></option>
+        
+                                                            <?php endif; ?>
+        
+                                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        
+                                                        <?php $__currentLoopData = $coin_data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        
+                                                            <option data-qr="<?php echo e($value->qr_code); ?>" data-wallet_address="<?php echo e($value->wallet_address); ?>" data-price="<?php echo e($value->price); ?>" value="<?php echo e($value->id); ?>"><?php echo e($value->coin_name); ?></option>
+        
+                                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        
+                                                    </select>
+                                                    <span class="input-group-text" id="basic-addon1" style="margin-left: -3px; background: #E9F6EC; padding: 0 25px; position: absolute; right:0; height: 100%;border: 2px solid #E9F6EC;"></span>
+                                                </div>
     
                                             </div>
                                         </div>
@@ -358,9 +366,9 @@
     
                                                 <div class="input-group mb-3">
     
-                                                    <input type="text" value="<?php echo e($data->exchange_rate); ?>" class="form-control exchange_rate" readonly="" required="" name="exchange_rate">
+                                                    <input type="text" value="<?php echo e($data->exchange_rate); ?>" class="form-control exchange_rate" readonly="" required="" name="exchange_rate" style="border: 2px solid #E9F6EC;">
     
-                                                    <span class="input-group-text" id="basic-addon1" style="margin-left: -3px;">XAF/USD</span>
+                                                    <span class="input-group-text" id="basic-addon1" style="margin-left: -3px;background: #E9F6EC;border: 1px solid #E9F6EC;">XAF/USD</span>
     
                                                 </div>
     
@@ -383,7 +391,7 @@
 
                                                     <label for="deposit_method"><?php echo e(__("Amount")); ?> (USD))</label>
     
-                                                    <input type="text" value="<?php echo e($data->amount); ?>" class="form-control amount" required="" name="amount">
+                                                    <input type="text" value="<?php echo e($data->amount); ?>" class="form-control amount" required="" name="amount" style="border: 2px solid #E9F6EC;">
     
                                                 </div>
                                             </div>
@@ -392,7 +400,7 @@
                                                 
                                                     <label for="deposit_method"><?php echo e(__("Amount to ".str_replace(["sell","buy"],["perceive","be paid"],$want))); ?></label>
     
-                                                    <input id="crypto_amount" type="text" value="<?php echo e($data->crypto_amount); ?>" class="form-control crypto_amount" readonly="" required="" name="crypto_amount">
+                                                    <input id="crypto_amount" type="text" value="<?php echo e($data->crypto_amount); ?>" class="form-control crypto_amount" readonly="" required="" name="crypto_amount" style="border: 2px solid #E9F6EC;">
     
                                                 </div>
                                             </div>
@@ -413,7 +421,7 @@
 
                                                 <div class="input-group mb-3">
 
-                                                    <input id="wallet_adress" type="text" value="<?php echo e($data->wallet_address); ?>" class="form-control wallet_address" required="" name="wallet_address" <?php if($want=="sell"): ?>{echo "readonly";} <?php endif; ?>>
+                                                    <input id="wallet_adress" type="text" value="<?php echo e($data->wallet_address); ?>" class="form-control wallet_address" required="" name="wallet_address" <?php if($want=="sell"): ?>{echo "readonly";} <?php endif; ?> style="border: 2px solid #E9F6EC;">
                                                     
 
                                                     <span  class="copieur input-group-text" id="basic-addon2" title="copier">
@@ -483,7 +491,8 @@
 
                                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
-                                                        </select><br>
+                                                        </select>
+                                                        <br>
 
                                                         <span   class="copieur input-group-text" id="add_method" data-toggle="modal" data-target="#exampleModalCenter" title="Ajouter une adresse">
 
@@ -588,23 +597,26 @@
 
                                             <label for="pay_method"><?php echo e(__("Pay method")); ?></label>
 
-                                            <select id="pay_method" class="form-control select_coin" name="pay_method" required>
+                                            <div class="input-group">
+                                                <select id="pay_method" class="form-control select_coin" name="pay_method" required style="z-index: 999; position: relative; background: transparent; margin-right: 15px; border: 2px solid #E9F6EC;">
 
-                                                <option value="<?php echo e($data->pay_method); ?>"><?php echo e($data->pay_method); ?></option>
-
-                                                <?php $__currentLoopData = $deposit; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-
-                                                    <?php if($value->name!=$data->pay_method): ?>
-
-                                                        <option data-price = "" value="<?php echo e($value->id); ?>"><?php echo e($value->name); ?></option>
-
-                                                    <?php endif; ?>
-
-                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-
-                                            
-                                                            
-                                            </select>
+                                                    <option value="<?php echo e($data->pay_method); ?>"><?php echo e($data->pay_method); ?></option>
+    
+                                                    <?php $__currentLoopData = $deposit; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+    
+                                                        <?php if($value->name!=$data->pay_method): ?>
+    
+                                                            <option data-price = "" value="<?php echo e($value->id); ?>"><?php echo e($value->name); ?></option>
+    
+                                                        <?php endif; ?>
+    
+                                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+    
+                                                
+                                                                
+                                                </select>
+                                                <span class="input-group-text" id="basic-addon1" style="margin-left: -3px; background: #E9F6EC; padding: 0 25px; position: absolute; right:0; height: 100%;border: 2px solid #E9F6EC;"></span>
+                                            </div>
                                         </div>
                                         </div>
 

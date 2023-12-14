@@ -10,7 +10,12 @@
 
     input:read-only {
     background-color: #e9f6ec38; /* Change to your desired readonly background color */
+    
   }
+  .btn:hover{
+      background: #E9F6EC !important;
+      box-shadow: 0 3px 8px 0 #E9F6EC !important;
+    }
   </style>
 
 
@@ -54,7 +59,7 @@
 
                         <div class="input-group mb-3">
 
-                          <select <?php echo e($disable); ?> class="form-control select_coin" name="coin_id" required="" style="z-index: 999; position: relative; background: transparent; margin-right: 15px; border: 1px solid #E9F6EC;">
+                          <select <?php echo e($disable); ?> class="form-control select_coin" name="coin_id" required="" style="z-index: 1; position: relative; background: transparent; margin-right: 15px; border: 2px solid #E9F6EC;">
 
                             <option>-select-</option>
   
@@ -81,7 +86,7 @@
 
                             <div class="input-group mb-3">
 
-                              <input type="text" value="" class="form-control exchange_rate" readonly="" required="" name="exchange_rate" style="border: 1px solid #E9F6EC;">
+                              <input type="text" value="" class="form-control exchange_rate" readonly="" required="" name="exchange_rate" style="border: 2px solid #E9F6EC;">
 
                               <span class="input-group-text" id="basic-addon1" style="margin-left: -3px; background: #E9F6EC;">FCFA/USD</span>
 
@@ -102,7 +107,7 @@
                           <label for="deposit_method" class=""><?php echo e(__("Amount (USD)")); ?></label>
 
                           <div class="input-group mb-3">
-                            <input <?php echo e($disable); ?> type="text" value="" class="form-control amount" required="" name="amount" style="border: 1px solid #E9F6EC;">
+                            <input <?php echo e($disable); ?> type="text" value="" class="form-control amount" required="" name="amount" style="border: 2px solid #E9F6EC;">
                           <span class="input-group-text" id="basic-addon1" style="margin-left: -3px; background: #E9F6EC; padding: 0 20px">$</span>
                           </div>
 
@@ -116,7 +121,7 @@
 
                           <label for="deposit_method" class=""><?php echo e(__("Amount of currency to buy")); ?></label>
 
-                          <input type="text" value="" class="form-control crypto_amount" readonly="" required="" name="crypto_amount">
+                          <input type="text" value="" class="form-control crypto_amount" readonly="" required="" name="crypto_amount" style="border: 2px solid #E9F6EC;">
 
                         </div>
 
@@ -135,10 +140,10 @@
                             <div class="input-group" style="margin-bottom: 0 !important;" >
 
                               <div class="input-group" style="display: flex; align-items:center;margin-bottom: 0 !important;">
-                                <select <?php echo e($disable); ?> style="display:none; text-align:left" class=" input-group-text form-control" name="wallet_address" id="buy_custom_paiemen" style="z-index: 999; position: relative; background: transparent; margin-right: 15px; border: 1px solid #E9F6EC;">
+                                <select <?php echo e($disable); ?> style="display:none; text-align:left" class=" input-group-text form-control" name="wallet_address" id="buy_custom_paiemen" style="z-index: 1; position: relative; background: transparent; margin-right: 15px; border: 1px solid #E9F6EC;">
 
                                 </select>
-                                <span id="add_method2" class="input-group-text"  style="margin-left: -3px; background: #E9F6EC; padding: 0 20px; position: absolute; right:0; font-weight: bold; display: none;" data-toggle="modal" data-target="#exampleModalCenter">+</span>
+                                <span id="buy_custom_paiemen2" class="input-group-text"  style="margin-left: -3px; background: #E9F6EC; padding: 0 20px; position: absolute; right:0; font-weight: bold; display: none;" data-toggle="modal" data-target="#exampleModalCenter">+</span>
                               </div>
                               
 
@@ -146,10 +151,10 @@
 
                             </div>
                         
-                            <div class="input-group">
+                            
                               <p id="custom_wallet_adresse" data-toggle="modal" data-target="#exampleModalCenter" value="" class="form-control" style="color:gray; font-size:16px;">Ajouter une adresse</p>
-                            <span class="input-group-text" id="custom_wallet_adresse1" style="margin-left: -3px; background: #E9F6EC; padding: 0 20px;">+</span>
-                            </div>
+                            
+                            
 
                             <input id="buy_pay_address" type="hidden" name="wallet_address">
 
@@ -180,7 +185,7 @@
                                 <label for="type" class="form-label">Type</label>
 
                                 <div class="input-group">
-                                  <select <?php echo e($disable); ?> name="type" class="form-control" id="type" style="z-index: 999; position: relative; background: transparent; margin-right: 15px; border: 1px solid #E9F6EC;">
+                                  <select <?php echo e($disable); ?> name="type" class="form-control" id="type" style="z-index: 1; position: relative; background: transparent; margin-right: 15px; border: 1px solid #E9F6EC;">
                                     
                                     <option value="cryptomonaie">Cryptomonaie</option>
 
@@ -193,7 +198,7 @@
                                 <div class="mb-3">
                                   <label  for="nom" class="form-label">Nom ou operateur de la methode</label>
                                   <div class="input-group">
-                                    <select name="nom" class="form-control" id="nom" style="z-index: 999; position: relative; background: transparent; margin-right: 15px; border: 1px solid #E9F6EC;">
+                                    <select name="nom" class="form-control" id="nom" style="z-index: 1; position: relative; background: transparent; margin-right: 15px; border: 1px solid #E9F6EC;">
                                       
                                       <option value="cryptomonaie">Cryptomonaie</option>
   
@@ -251,7 +256,7 @@
                         <label class="" for="pay_method"><?php echo e(__("Pay method")); ?></label>
 
                         <div class="input-group">
-                          <select <?php echo e($disable); ?> id="pay_method" class="form-control select_coin" name="pay_method" required="" style="z-index: 999; position: relative; background: transparent; margin-right: 15px; border: 1px solid #E9F6EC;">
+                          <select <?php echo e($disable); ?> id="pay_method" class="form-control select_coin" name="pay_method" required="" style="z-index: 1; position: relative; background: transparent; margin-right: 15px; border: 1px solid #E9F6EC;">
 
                             
 
@@ -288,11 +293,11 @@
                   <?php if($disable=="disabled"): ?>
 
 
-                    <p <?php echo e($disable); ?> data-toggle="modal" data-target="#offlinemodal" type="submit" class="btn btn-default submit_form" style="border: 1px solid #E9F6EC"><?php echo e(__('Submit')); ?></p>
+                    <p <?php echo e($disable); ?> data-toggle="modal" data-target="#offlinemodal" type="submit" class="btn btn-default submit_form" style="border: 2px solid #E9F6EC"><?php echo e(__('Submit')); ?></p>
 
                   <?php else: ?>
 
-                    <button  type="submit" class="btn btn-default submit_form" style="border: 1px solid #E9F6EC"><?php echo e(__('Submit')); ?></button>
+                    <button  type="submit" class="btn btn-default submit_form" style="border: 2px solid #E9F6EC"><?php echo e(__('Submit')); ?></button>
 
                   <?php endif; ?>
                   </div>
