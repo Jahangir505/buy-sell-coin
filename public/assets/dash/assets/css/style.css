@@ -4056,13 +4056,13 @@ h6 .badge {
   left: 250px;
   right: 0px;
   position: absolute;
-  z-index: 9999;
+  z-index: 1;
   background-color: transparent;
   height: 70px;
   left: 250px;
   right: 0;
   position: absolute;
-  z-index: 9999;
+  z-index: 1;
   background-color: transparent;
   margin: 20px 30px 30px 30px;
   border-radius: 5px;

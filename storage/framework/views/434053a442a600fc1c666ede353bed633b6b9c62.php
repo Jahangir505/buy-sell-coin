@@ -13,7 +13,7 @@
 
     <?php echo $__env->make('partials.sidebar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
-    <div class="col-md-9 " style="padding-right: 40px" id="#sendMoney">
+    <div class="col-md-9 padding-right" id="#sendMoney">
 
       <?php echo $__env->make('flash', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
@@ -107,8 +107,10 @@
 
                           <label class="" for="deposit_method"><?php echo e(__("Amount of currency to sell")); ?></label>
 
-                          <input <?php echo e($disable); ?> type="text" value="" class="form-control crypto_amount" readonly="" required="" name="crypto_amount" style="border: 2px solid #E9F6EC;">
-                            
+                          <div class="input-group">
+                            <input <?php echo e($disable); ?> type="text" value="" class="form-control crypto_amount" readonly="" required="" name="crypto_amount" style="border: 2px solid #E9F6EC;">
+                          <span class="input-group-text" id="basic-addon1" style="margin-left: -3px; background: #E9F6EC; padding: 0 10px;">FCFA</span>
+                          </div>
                         </div>
 
                     </div>
@@ -142,7 +144,8 @@
 
                         <label class="" for="pay_method"><?php echo e(__("Pay method")); ?></label>
 
-                        <select <?php echo e($disable); ?> id="pay_method" class="form-control select_coin" name="pay_method" required="">
+                        <div class="input-group">
+                          <select <?php echo e($disable); ?> id="pay_method" class="form-control select_coin" name="pay_method" required="" style="z-index: 999; position: relative; background: transparent; margin-right: 15px; border: 2px solid #E9F6EC;">
 
                             
 
@@ -153,6 +156,8 @@
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                               
                         </select>
+                        <span class="input-group-text" id="basic-addon1" style="margin-left: -3px; background: #E9F6EC; padding: 0 25px; position: absolute; right:0;"></span>
+                        </div>
                         
                       </div>
                     </div>
