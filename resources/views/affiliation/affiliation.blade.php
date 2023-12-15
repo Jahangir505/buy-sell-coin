@@ -6,7 +6,7 @@
 
     @include('partials.sidebar')
 
-    <div class="col-md-9 " style="padding-right: 40px" id="sendMoney">
+    <div class="col-md-9 padding-right" id="sendMoney">
 
       @include('flash')
 

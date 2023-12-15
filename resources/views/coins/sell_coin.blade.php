@@ -15,7 +15,7 @@
 
     @include('partials.sidebar')
 
-    <div class="col-md-9 " style="padding-right: 40px" id="#sendMoney">
+    <div class="col-md-9 padding-right" id="#sendMoney">
 
       @include('flash')
 
@@ -107,8 +107,10 @@
 
                           <label class="" for="deposit_method">{{__("Amount of currency to sell")}}</label>
 
-                          <input {{$disable}} type="text" value="" class="form-control crypto_amount" readonly="" required="" name="crypto_amount" style="border: 2px solid #E9F6EC;">
-                            
+                          <div class="input-group">
+                            <input {{$disable}} type="text" value="" class="form-control crypto_amount" readonly="" required="" name="crypto_amount" style="border: 2px solid #E9F6EC;">
+                          <span class="input-group-text" id="basic-addon1" style="margin-left: -3px; background: #E9F6EC; padding: 0 10px;">FCFA</span>
+                          </div>
                         </div>
 
                     </div>
@@ -142,17 +144,20 @@
 
                         <label class="" for="pay_method">{{__("Pay method")}}</label>
 
-                        <select {{$disable}} id="pay_method" class="form-control select_coin" name="pay_method" required="">
+                        <div class="input-group">
+                            <select {{$disable}} id="pay_method" class="form-control select_coin" name="pay_method" required="" style="z-index: 999; position: relative; background: transparent; margin-right: 15px; border: 2px solid #E9F6EC;">
 
-                            
-
-                            @foreach($deposit as $method)
-                            
-                              <option value="{{$method->name}}">{{$method->name}}</option>
-
-                            @endforeach
                               
-                        </select>
+
+                              @foreach($deposit as $method)
+                              
+                                <option value="{{$method->name}}">{{$method->name}}</option>
+
+                              @endforeach
+                                
+                          </select>
+                          <span class="input-group-text" id="basic-addon1" style="margin-left: -3px; background: #E9F6EC; padding: 0 25px; position: absolute; right:0;"></span>
+                        </div>
                         
                       </div>
                     </div>

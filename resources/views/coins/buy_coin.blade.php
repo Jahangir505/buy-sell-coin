@@ -27,7 +27,7 @@
 
     @include('partials.sidebar')
 
-    <div class="col-md-9 " style="padding-right: 40px" id="#sendMoney">
+    <div class="col-md-9 padding-right" id="#sendMoney">
 
       @include('flash')
 
@@ -35,7 +35,7 @@
 
         <div class="header">
 
-            <h2 style="color: #ffffff"><strong>{{__("Buy Coins")}}</strong></h2>
+            <h2><strong>{{__("Buy Coins")}}</strong></h2>
 
         </div>
 
@@ -121,7 +121,11 @@
 
                           <label for="deposit_method" class="">{{__("Amount of currency to buy")}}</label>
 
-                          <input type="text" value="" class="form-control crypto_amount" readonly="" required="" name="crypto_amount" style="border: 2px solid #E9F6EC;">
+
+                          <div class="input-group">
+                            <input type="text" value="" class="form-control crypto_amount" readonly="" required="" name="crypto_amount" style="border: 2px solid #E9F6EC;">
+                            <span class="input-group-text" id="basic-addon1" style="margin-left: -3px; background: #E9F6EC; padding: 0 10px;">FCFA</span>
+                          </div>
 
                         </div>
 
@@ -305,7 +309,8 @@
 
                   @else
 
-                    <button  type="submit" class="btn btn-default submit_form" style="border: 2px solid #E9F6EC">{{__('Submit')}}</button>
+
+                  <button type="submit" class="text-gray-900 font-bold bg-gradient-to-r from-green-200 to-lime-200 hover:bg-gradient-to-l hover:from-green-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-green-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">{{__('Submit')}}</button>
 
                   @endif
                   </div>

@@ -423,10 +423,11 @@ function transaction() {
         menu_item.forEach((item) => {
           addEvent(item, "click", () => {
             let type = item.getAttribute("id");
+            // item.classList.add("active dark:bg-blue-600 bg-blue-700 text-white")
 
             item.style.color = "white";
 
-            item.style.backgroundColor = "#3abaf4";
+            item.style.backgroundColor = "#03a84e";
 
             menu_item.forEach((item1) => {
               let type1 = item1.getAttribute("id");
@@ -435,6 +436,7 @@ function transaction() {
                 item1.style.color = "gray";
 
                 item1.style.backgroundColor = "#ececec";
+                // item.classList.remove("active dark:bg-blue-600 bg-blue-700 text-white")
               }
             });
 
