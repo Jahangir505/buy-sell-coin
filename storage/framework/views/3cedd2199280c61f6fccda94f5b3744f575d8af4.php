@@ -46,7 +46,7 @@
                         <label class="" for="deposit_method"><?php echo e(__("Select Currency")); ?></label>
 
                         <div class="input-group mb-3">
-                          <select <?php echo e($disable); ?> class="form-control select_coin" name="coin_id" required="" style="z-index: 999; position: relative; background: transparent; margin-right: 15px; border: 2px solid #E9F6EC;">
+                          <select <?php echo e($disable); ?> class="form-control select_coin" name="coin_id" required="" style="z-index: 1; position: relative; background: transparent; margin-right: 15px; border: 2px solid #E9F6EC;">
 
                             <option>-select-</option>
   
