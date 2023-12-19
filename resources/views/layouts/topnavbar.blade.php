@@ -232,13 +232,13 @@
       <div class="main-sidebar sidebar-style-2">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-            <a href="/"> <img alt="image" src="/assets/front/img/logo.png" class="header-logo" /> 
+            <a href="/"> <img alt="image" src="/assets/front/img/logo.png" /> 
             {{-- <span class="logo-name">{{ setting('site.site_name') }}</span> --}}
             </a>
           </div>
-          <div class="sidebar-user">
+          {{-- <div class="sidebar-user">
             
-          </div>
+          </div> --}}
           <ul class="sidebar-menu">
             
             <li class="dropdown {{ request()->routeIs('home') ? 'active' : '' }}">
@@ -247,7 +247,7 @@
               
             </li>
             
-            <li class="dropdown {{ request()->routeIs('affiliation') ? 'active' : '' }}">
+            <li class="dropdown {{ request()->routeIs('affiliation') ? 'active' : '' }}" data-id={{ request()->routeIs('affiliation') }}>
               <a href="/affiliation"><i data-feather="share-2"></i><span>{{ __("Affiliation") }}</span></a>
               
             </li>
@@ -256,7 +256,7 @@
               
             </li>
             
-            <li class="dropdown">
+            <li class="dropdown {{ request()->routeIs('buyCoin') ? 'active' : '' }}">
               <a href="/buyCoin"><i data-feather="shopping-cart"></i><span>{{ __("Buy Coins") }}</span></a>
               
             </li>
@@ -275,7 +275,7 @@
              
             </li> --}}
            
-            <li class="dropdown {{ request()->routeIs('info') ? 'active' : '' }}">
+            <li class="dropdown {{ request()->routeIs('profile.info') ? 'active' : '' }}">
               <a href="/profile/info"><i
                   data-feather="settings"></i><span>{{ __("Settings") }}</span></a>
              

@@ -4,7 +4,7 @@
 
     <?php echo $__env->make('partials.sidebar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
-    <div class="col-md-9 " style="padding-right: 40px" id="sendMoney">
+    <div class="col-md-9 padding-right" id="sendMoney">
 
       <?php echo $__env->make('flash', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 

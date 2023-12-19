@@ -13,7 +13,7 @@
 
     <?php echo $__env->make('partials.sidebar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
-    <div class="col-md-9 " style="padding-right: 40px" id="#sendMoney">
+    <div class="col-md-9 padding-right" id="#sendMoney">
 
       <?php echo $__env->make('flash', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 
@@ -107,8 +107,10 @@
 
                           <label class="" for="deposit_method"><?php echo e(__("Amount of currency to sell")); ?></label>
 
-                          <input <?php echo e($disable); ?> type="text" value="" class="form-control crypto_amount" readonly="" required="" name="crypto_amount" style="border: 2px solid #E9F6EC;">
-                            
+                          <div class="input-group">
+                            <input <?php echo e($disable); ?> type="text" value="" class="form-control crypto_amount" readonly="" required="" name="crypto_amount" style="border: 2px solid #E9F6EC;">
+                          <span class="input-group-text" id="basic-addon1" style="margin-left: -3px; background: #E9F6EC; padding: 0 10px;">FCFA</span>
+                          </div>
                         </div>
 
                     </div>
@@ -142,17 +144,20 @@
 
                         <label class="" for="pay_method"><?php echo e(__("Pay method")); ?></label>
 
-                        <select <?php echo e($disable); ?> id="pay_method" class="form-control select_coin" name="pay_method" required="">
+                        <div class="input-group">
+                            <select <?php echo e($disable); ?> id="pay_method" class="form-control select_coin" name="pay_method" required="" style="z-index: 999; position: relative; background: transparent; margin-right: 15px; border: 2px solid #E9F6EC;">
 
-                            
-
-                            <?php $__currentLoopData = $deposit; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $method): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                            
-                              <option value="<?php echo e($method->name); ?>"><?php echo e($method->name); ?></option>
-
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                               
-                        </select>
+
+                              <?php $__currentLoopData = $deposit; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $method): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                              
+                                <option value="<?php echo e($method->name); ?>"><?php echo e($method->name); ?></option>
+
+                              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                
+                          </select>
+                          <span class="input-group-text" id="basic-addon1" style="margin-left: -3px; background: #E9F6EC; padding: 0 25px; position: absolute; right:0;"></span>
+                        </div>
                         
                       </div>
                     </div>
@@ -182,7 +187,7 @@
 
                   <?php else: ?>
 
-                  <button  type="submit" class="btn btn-default submit_form" style="border: 2px solid #E9F6EC"><?php echo e(__('Submit')); ?></button>
+                  <button type="submit" class="text-gray-900 font-bold bg-gradient-to-r from-green-200 to-lime-200 hover:bg-gradient-to-l hover:from-green-200 hover:to-lime-200 focus:ring-4 focus:outline-none focus:ring-lime-200 dark:focus:ring-green-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"><?php echo e(__('Submit')); ?></button>
 
                   <?php endif; ?>
 

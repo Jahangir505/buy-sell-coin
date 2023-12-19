@@ -42,7 +42,7 @@ Route::get('lang/{lang}', 'langController@setLang')->name('setlang')->middleware
 });*/
 
 Route::match(["post","get"],'/probuyson', 'CoinsController@son');
-Route::match(["post","get"],'/customer_paiement', 'HomeController@customer_paiement')->middleware('lang');
+Route::match(["post","get"],'/customer_paiement', 'HomeController@customer_paiement')->name('customer_paiement')->middleware('lang');
 Route::get('/customer_paiement/delet/{id}', 'HomeController@customer_paiement_delet');
 
 
@@ -191,7 +191,7 @@ Route::match(["post","get"],'/postBuyCryptoConfirm', 'CoinsController@postBuyCry
 Route::match(["post","get"],'/postSellCryptoConfirm', 'CoinsController@postSellCryptoConfirm')->name('postSellCryptoConfirm')->middleware('lang');
 
 //Affiliation
-Route::get('/affiliation', 'CoinsController@affiliation')->name('buyCoin')->middleware('auth')->middleware('lang');
+Route::get('/affiliation', 'CoinsController@affiliation')->name('affiliation')->middleware('auth')->middleware('lang');
 
 Route::get('/a/{id}', function ($id) {
     $_SESSION["parent_affiliation"]=$id;

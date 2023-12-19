@@ -232,13 +232,11 @@
       <div class="main-sidebar sidebar-style-2">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-            <a href="/"> <img alt="image" src="/assets/front/img/logo.png" class="header-logo" /> 
+            <a href="/"> <img alt="image" src="/assets/front/img/logo.png" /> 
             
             </a>
           </div>
-          <div class="sidebar-user">
-            
-          </div>
+          
           <ul class="sidebar-menu">
             
             <li class="dropdown <?php echo e(request()->routeIs('home') ? 'active' : ''); ?>">
@@ -247,7 +245,7 @@
               
             </li>
             
-            <li class="dropdown <?php echo e(request()->routeIs('affiliation') ? 'active' : ''); ?>">
+            <li class="dropdown <?php echo e(request()->routeIs('affiliation') ? 'active' : ''); ?>" data-id=<?php echo e(request()->routeIs('affiliation')); ?>>
               <a href="/affiliation"><i data-feather="share-2"></i><span><?php echo e(__("Affiliation")); ?></span></a>
               
             </li>
@@ -256,7 +254,7 @@
               
             </li>
             
-            <li class="dropdown">
+            <li class="dropdown <?php echo e(request()->routeIs('buyCoin') ? 'active' : ''); ?>">
               <a href="/buyCoin"><i data-feather="shopping-cart"></i><span><?php echo e(__("Buy Coins")); ?></span></a>
               
             </li>
@@ -272,7 +270,7 @@
             
             
            
-            <li class="dropdown <?php echo e(request()->routeIs('info') ? 'active' : ''); ?>">
+            <li class="dropdown <?php echo e(request()->routeIs('profile.info') ? 'active' : ''); ?>">
               <a href="/profile/info"><i
                   data-feather="settings"></i><span><?php echo e(__("Settings")); ?></span></a>
              
